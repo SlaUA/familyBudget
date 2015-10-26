@@ -14,7 +14,7 @@ define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
         });
 
         app.SingleMoveView = Backbone.View.extend({
-            tagName: 'li',
+            tagName: 'div',
             template: _.template($('#moving-template').html()),
 
             events: {

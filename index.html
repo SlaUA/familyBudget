@@ -10,16 +10,24 @@
 <body>
 
 <script id="moving-template" type="text/template">
-    <span class="dateColumn"><%= new Date(date).getDate() %>.<%= new Date(date).getMonth()+1 %>.<%= new Date(date).getFullYear() %></span>
-    <span class="typeColumn"><%= type %></span>
-    <span class="sumColumn"><%= sum %></span>
-    <span class="commentColumn"><%= comment %></span>
-    <span class="editColumn">&#x270E;</span>
-    <span class="removeColumn">&#215;</span>
+    <div class="dateColumn">
+        <%= new Date(date).getDate() %>.<%= new Date(date).getMonth()+1 %>.<%= new Date(date).getFullYear() %>
+    </div>
+    <div class="typeColumn">
+        <%= type === 'income' ? '+' : '-' %>
+    </div>
+    <div class="sumColumn">
+        <%= sum %>
+    </div>
+    <div class="commentColumn">
+        <%= comment %>
+    </div>
+    <div class="editColumn">&#x270E;</div>
+    <div class="removeColumn">&#215;</div>
 </script>
 
 <div id="MoveApp">
-    <ul id="MovesWrapper"></ul>
+    <div id="MovesWrapper"></div>
 </div>
 
 </body>

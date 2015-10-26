@@ -27,6 +27,11 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves'], func
                     type: 'expense',
                     sum: 10000,
                     comment: 'Приватбанк, credit card'
+                }, {
+                    date: new Date(2015, 9, 15).getTime(),
+                    type: 'expense',
+                    sum: 10000,
+                    comment: 'Приватбанк, credit card'
                 }]
             ));
         new window.app.MultipleMovesCollectionView();

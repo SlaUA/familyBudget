@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+}
+
+#MovesWrapper {
+    display: flex;
+    table-layout: fixed;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 320px;
+}
+
+.moveRow {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    min-height: 50px;
+    height: auto;
+}
+
+.moveRow > div {
+    outline: 1px solid black;
+    height: 100%;
+}
+
+.dateColumn {
+    width: 25%;
+    min-width: 80px;
+    justify-content: center;
+    display: flex;
+}
+
+.typeColumn {
+    width: 3%;
+    min-width: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.sumColumn {
+    width: 15%;
+    min-width: 48px;
+    justify-content: center;
+    display: flex;
+}
+
+.commentColumn {
+    width: 45%;
+    min-width: 144px;
+    justify-content: center;
+    display: flex;
+}
+
+.editColumn {
+    width: 6%;
+    min-width: 19px;
+    justify-content: center;
+    display: flex;
+}
+
+.removeColumn {
+    width: 6%;
+    min-width: 19px;
+    justify-content: center;
+    display: flex;
+}
