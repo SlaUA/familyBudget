@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Бюджет</title>
+    <link rel="stylesheet" href="./assets/styles/main.css"/>
+    <script data-main="assets/js/app.js" src="assets/js/static/require.js"></script>
+</head>
+<body>
+
+<script id="moving-template" type="text/template">
+    <span class="dateColumn"><%= new Date(date).getDate() %>.<%= new Date(date).getMonth()+1 %>.<%= new Date(date).getFullYear() %></span>
+    <span class="typeColumn"><%= type %></span>
+    <span class="sumColumn"><%= sum %></span>
+    <span class="commentColumn"><%= comment %></span>
+    <span class="editColumn">&#x270E;</span>
+    <span class="removeColumn">&#215;</span>
+</script>
+
+<div id="movingsApp">
+    <ul id="movingsWrapper"></ul>
+</div>
+
+</body>
+</html>
