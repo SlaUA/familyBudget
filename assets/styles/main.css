@@ -2,67 +2,70 @@ body {
     margin: 0;
 }
 
-#MovesWrapper {
-    display: flex;
-    table-layout: fixed;
+div#movesApp {
+    margin: 5px 3px 0;
+}
+
+#movesWrapper {
     width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    min-width: 320px;
+    min-width: 310px;
 }
 
 .moveRow {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    width: 100%;
-    flex-direction: row;
-    min-height: 50px;
-    height: auto;
+    overflow: hidden;
+    outline: 1px solid black;
+    margin-bottom: 5px;
 }
 
 .moveRow > div {
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
     outline: 1px solid black;
-    height: 100%;
+    align-items: center;
 }
 
 .dateColumn {
-    width: 25%;
-    min-width: 80px;
-    justify-content: center;
-    display: flex;
+    width: 23%;
+    min-width: 75px;
 }
 
 .typeColumn {
-    width: 3%;
-    min-width: 10px;
-    justify-content: center;
-    display: flex;
+    width: 7%;
+    min-width: 22px;
 }
 
 .sumColumn {
     width: 15%;
     min-width: 48px;
-    justify-content: center;
-    display: flex;
 }
 
 .commentColumn {
-    width: 45%;
-    min-width: 144px;
-    justify-content: center;
-    display: flex;
-}
-
-.editColumn {
-    width: 6%;
-    min-width: 19px;
-    justify-content: center;
-    display: flex;
+    width: 23%;
+    min-width: 103px;
+    padding: 0 3px;
 }
 
 .removeColumn {
-    width: 6%;
-    min-width: 19px;
-    justify-content: center;
-    display: flex;
+    width: 19%;
+    min-width: 60px;
+    font-size: 2em;
+    font-weight: bold;
 }
+
+.moveRow.incomeRow {
+    background: rgba(0, 128, 0, 0.1);
+}
+
+.moveRow.expenseRow {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+#movesHeaders .removeColumn, #movesHeaders .editColumn {
+    font-weight: normal;
+    font-size: 16px;
+}
+

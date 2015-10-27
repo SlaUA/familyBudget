@@ -22,12 +22,30 @@
     <div class="commentColumn">
         <%= comment %>
     </div>
-    <div class="editColumn">&#x270E;</div>
     <div class="removeColumn">&#215;</div>
 </script>
 
-<div id="MoveApp">
-    <div id="MovesWrapper"></div>
+<div id="movesApp">
+    <div id="movesWrapper">
+        <div id="movesHeaders" class="moveRow">
+            <div class="dateColumn">
+                Дата записи
+            </div>
+            <div class="typeColumn">
+                +/-
+            </div>
+            <div class="sumColumn">
+                Сумма
+            </div>
+            <div class="commentColumn">
+                Комментарий
+            </div>
+            <div class="removeColumn">
+                Удалить
+            </div>
+        </div>
+        <div id="moves"></div>
+    </div>
 </div>
 
 </body>

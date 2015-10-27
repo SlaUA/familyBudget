@@ -15,7 +15,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
         app.MultipleMovesCollectionView = Backbone.View.extend({
 
-            el: $('#MovesWrapper'),
+            el: $('#moves'),
 
             collection: app.multipleMovesCollection,
 

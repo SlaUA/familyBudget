@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'backbone.touch'], function ($, _, Backbone) {
 
     $(function () {
 
@@ -18,7 +18,8 @@ define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
             template: _.template($('#moving-template').html()),
 
             events: {
-                'click .removeColumn': 'onMoveRemoveClick'
+                'tap .removeColumn': 'onMoveRemoveClick',
+                'doubletap .commentColumn': 'onCommentClick'
             },
 
             onMoveRemoveClick: function () {
@@ -26,6 +27,10 @@ define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
                 this.remove();
                 this.unbind();
                 this.model.collection.remove(this.model);
+            },
+
+            onCommentClick: function () {
+                alert();
             },
 
             initialize: function () {

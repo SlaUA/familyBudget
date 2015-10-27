@@ -4,12 +4,13 @@ require.config({
         jquery: 'static/jQuery',
         underscore: 'static/underscore',
         backbone: 'static/backbone',
+        'backbone.touch': 'static/backboneTouch',
         SingleMove: 'SingleMove',
         MultipleMoves: 'MultipleMoves'
     }
 });
 
-define(['jquery', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves'], function () {
+define(['jquery', 'underscore', 'backbone', 'backbone.touch', 'SingleMove', 'MultipleMoves'], function () {
 
     jQuery(function () {
 
