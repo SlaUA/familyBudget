@@ -4,37 +4,16 @@ require.config({
         jquery: 'static/jQuery',
         underscore: 'static/underscore',
         backbone: 'static/backbone',
-        'backbone.touch': 'static/backboneTouch',
         SingleMove: 'SingleMove',
-        MultipleMoves: 'MultipleMoves'
+        MultipleMoves: 'MultipleMoves',
+        SingleMoveEdit: 'SingleMoveEdit'
     }
 });
 
-define(['jquery', 'underscore', 'backbone', 'backbone.touch', 'SingleMove', 'MultipleMoves'], function () {
+define(['jquery', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'], function () {
 
     jQuery(function () {
 
-        //TODO: adapter
-
-        localStorage.setItem('appData',
-            JSON.stringify(
-                [{
-                    date: Date.now(),
-                    type: 'income',
-                    sum: 40000,
-                    comment: 'Зарплата'
-                }, {
-                    date: new Date(2015, 9, 15).getTime(),
-                    type: 'expense',
-                    sum: 10000,
-                    comment: 'Приватбанк, credit card'
-                }, {
-                    date: new Date(2015, 9, 15).getTime(),
-                    type: 'expense',
-                    sum: 10000,
-                    comment: 'Приватбанк, credit card'
-                }]
-            ));
         new window.app.MultipleMovesCollectionView();
     });
 

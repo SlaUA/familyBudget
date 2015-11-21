@@ -25,6 +25,21 @@
     <div class="removeColumn">&#215;</div>
 </script>
 
+<script id="moving-edit-template" type="text/template">
+    <input type="date"
+           value="<%= new Date(date).getFullYear()%>-<%=new Date(date).getMonth()+1%>-<%=new Date(date).getDate()%>">
+    <select>
+        <option value="-">Расход</option>
+        <option value="+">Доход</option>
+    </select>
+    <input value="<%= sum %>">
+    <textarea class="editMoveComment"><%= comment %></textarea>
+    <div class="bottomButtonsWrapper">
+        <div class="acceptMoveChanges bottomButtons">OK:)</div>
+        <div class="rejectMoveChanges bottomButtons">Отмена</div>
+    </div>
+</script>
+
 <div id="movesApp">
     <div id="movesWrapper">
         <div id="movesHeaders" class="moveRow">
@@ -47,6 +62,8 @@
         <div id="moves"></div>
     </div>
 </div>
+
+<div id="editMoveView"></div>
 
 </body>
 </html>

@@ -1,5 +1,28 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body.overlay-enabled:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    overflow: auto;
+}
+
+body.overlay-enabled {
+    overflow: hidden;
 }
 
 div#movesApp {
@@ -69,3 +92,65 @@ div#movesApp {
     font-size: 16px;
 }
 
+/*edit move*/
+
+#editMoveView {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    z-index: 2;
+    background: snow;
+    display: none;
+}
+
+#editMoveView > * {
+    width: 270px;
+    display: block;
+    margin: 10px auto 0;
+    padding: 0;
+    outline: 1px solid bisque;
+    box-sizing: border-box;
+    text-align: left;
+    height: 35px;
+    font-size: 20px;
+}
+
+#editMoveView .editMoveComment {
+    height: 100px;
+    overflow: auto;
+}
+
+#editMoveView .bottomButtonsWrapper {
+    line-height: 35px;
+    text-align: center;
+    outline: 0;
+}
+
+#editMoveView .bottomButtons {
+    display: inline-block;
+    width: 45%;
+    height: 100%;
+    color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.acceptMoveChanges.bottomButtons {
+    background: green;
+    float: left;
+}
+
+.rejectMoveChanges.bottomButtons {
+    background: orangered;
+    float: right;
+}
+
+/*end edit move*/

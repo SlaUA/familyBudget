@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'backbone.touch'], function ($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, Backbone) {
 
     $(function () {
 
@@ -18,8 +18,8 @@ define(['jquery', 'underscore', 'backbone', 'backbone.touch'], function ($, _, B
             template: _.template($('#moving-template').html()),
 
             events: {
-                'tap .removeColumn': 'onMoveRemoveClick',
-                'doubletap .commentColumn': 'onCommentClick'
+                'click .removeColumn': 'onMoveRemoveClick',
+                'click .commentColumn': 'onCommentClick'
             },
 
             onMoveRemoveClick: function () {
@@ -30,7 +30,10 @@ define(['jquery', 'underscore', 'backbone', 'backbone.touch'], function ($, _, B
             },
 
             onCommentClick: function () {
-                alert();
+
+                new app.SingleMoveEditView({
+                    model: this.model
+                });
             },
 
             initialize: function () {
