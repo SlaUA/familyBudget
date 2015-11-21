@@ -1,0 +1,14 @@
+<widget id="com.example.familyBudget" version="0.0.1">
+    <name>Family budget</name>
+    <description>
+        Simple budget app.
+    </description>
+    <author email="wenzelua@gmail.com" href="">
+        WenzelUA
+    </author>
+    <content src="index.html"/>
+    <access origin="*"/>
+    <platform name="android">
+        <preference name="orientation" value="landscape"/>
+    </platform>
+</widget>
