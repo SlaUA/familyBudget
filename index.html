@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Бюджет</title>
     <link rel="stylesheet" href="./assets/styles/main.css"/>
+    <link rel="stylesheet" href="./assets/styles/glDatePicker_flatwhite.css"/>
     <script data-main="assets/js/app.js" src="assets/js/static/require.js"></script>
 </head>
 <body>
@@ -26,8 +27,8 @@
 </script>
 
 <script id="moving-edit-template" type="text/template">
-    <input type="date"
-           value="<%= new Date(date).getFullYear()%>-<%=new Date(date).getMonth()+1%>-<%=new Date(date).getDate()%>">
+    <input type="text" data-type="date"
+           value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
     <select>
         <option value="-">Расход</option>
         <option value="+">Доход</option>
@@ -42,9 +43,9 @@
 
 <div id="movesApp">
     <div id="movesWrapper">
-        <div id="movesHeaders" class="moveRow">
+        <div class="movesHeader">
             <div class="dateColumn">
-                Дата записи
+                Дата
             </div>
             <div class="typeColumn">
                 +/-
@@ -53,7 +54,7 @@
                 Сумма
             </div>
             <div class="commentColumn">
-                Комментарий
+                Коммент
             </div>
             <div class="removeColumn">
                 Удалить

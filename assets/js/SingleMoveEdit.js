@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
+define(['jquery', 'glDatePicker', 'underscore', 'backbone'], function ($, glDatePicker, _, Backbone) {
 
     $(function () {
 
@@ -14,7 +14,7 @@ define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
             },
 
             onUpdateChanges: function () {
-                console.log('changes approved!')
+                console.log('changes approved!');
             },
 
             onRejectChanges: function () {
@@ -36,6 +36,9 @@ define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
                 this.$el.html(
                     this.template(this.model.toJSON())
                 );
+                this.$el.find('[data-type="date"]').glDatePicker({
+                    selectedDate: new Date(this.model.attributes.date)
+                });
                 this.$el.show();
                 this.$el.closest('body').addClass('overlay-enabled');
                 return this;

@@ -25,7 +25,9 @@ body.overlay-enabled {
     overflow: hidden;
 }
 
-div#movesApp {
+/* main screen */
+
+#movesApp {
     margin: 5px 3px 0;
 }
 
@@ -34,49 +36,53 @@ div#movesApp {
     min-width: 310px;
 }
 
+.movesHeader {
+    display: table;
+    width: 100%;
+    text-align: center;
+    outline-offset: inherit;
+}
+
+#moves {
+    display: table;
+    width: 100%;
+}
+
 .moveRow {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    display: table-row;
     overflow: hidden;
     outline: 1px solid black;
     margin-bottom: 5px;
 }
 
-.moveRow > div {
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
+.moveRow > div, .movesHeader > div {
+    display: table-cell;
     outline: 1px solid black;
-    align-items: center;
+    vertical-align: middle;
 }
 
 .dateColumn {
     width: 23%;
-    min-width: 75px;
 }
 
 .typeColumn {
     width: 7%;
-    min-width: 22px;
+    text-align: center;
 }
 
 .sumColumn {
     width: 15%;
-    min-width: 48px;
+    text-align: center;
 }
 
 .commentColumn {
-    width: 23%;
-    min-width: 103px;
-    padding: 0 3px;
+    width: 35%;
+    padding-left: 5px;
 }
 
 .removeColumn {
-    width: 19%;
-    min-width: 60px;
-    font-size: 2em;
-    font-weight: bold;
+    width: 20%;
+    text-align: center;
 }
 
 .moveRow.incomeRow {

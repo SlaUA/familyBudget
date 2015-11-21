@@ -4,13 +4,14 @@ require.config({
         jquery: 'static/jQuery',
         underscore: 'static/underscore',
         backbone: 'static/backbone',
+        glDatePicker: 'static/glDatePicker',
         SingleMove: 'SingleMove',
         MultipleMoves: 'MultipleMoves',
         SingleMoveEdit: 'SingleMoveEdit'
     }
 });
 
-define(['jquery', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'], function () {
+define(['jquery', 'glDatePicker', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'], function () {
 
     jQuery(function () {
 
