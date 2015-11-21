@@ -11,10 +11,10 @@ require.config({
     }
 });
 
-define(['jquery', 'glDatePicker', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'], function () {
+define(['jquery', 'glDatePicker', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'], function (jQuery) {
 
     jQuery(function () {
-
+        alert(jQuery('body').width());
         new window.app.MultipleMovesCollectionView();
     });
 
