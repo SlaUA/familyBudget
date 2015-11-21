@@ -272,6 +272,7 @@ define(['jquery'], function ($) {
     /* Настройка под русский */
     $.extend($.fn.glDatePicker.prototype.constructor.defaults, {
         showAlways: false,
+        zIndex: 99999,
         cssName: 'flatwhite',
         monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         dowNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
