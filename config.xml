@@ -10,5 +10,6 @@
     <access origin="*"/>
     <platform name="android">
         <preference name="orientation" value="landscape"/>
+        <preference name="Fullscreen" value="true" />
     </platform>
 </widget>
