@@ -40,12 +40,13 @@ body.overlay-enabled {
     display: table;
     width: 100%;
     text-align: center;
-    outline-offset: inherit;
+    table-layout: fixed;
 }
 
 #moves {
     display: table;
     width: 100%;
+    table-layout: fixed;
 }
 
 .moveRow {
@@ -59,6 +60,8 @@ body.overlay-enabled {
     display: table-cell;
     outline: 1px solid black;
     vertical-align: middle;
+    height: 50px;
+    text-align: center;
 }
 
 .dateColumn {
@@ -66,23 +69,24 @@ body.overlay-enabled {
 }
 
 .typeColumn {
-    width: 7%;
-    text-align: center;
+    width: 9%;
 }
 
 .sumColumn {
-    width: 15%;
-    text-align: center;
+    width: 18%;
 }
 
 .commentColumn {
-    width: 35%;
+    width: 30%;
     padding-left: 5px;
+}
+
+.moveRow > div.commentColumn {
+    text-align: left;
 }
 
 .removeColumn {
     width: 20%;
-    text-align: center;
 }
 
 .moveRow.incomeRow {
