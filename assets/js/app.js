@@ -4,19 +4,18 @@ require.config({
         jquery: 'static/jQuery',
         underscore: 'static/underscore',
         backbone: 'static/backbone',
-        glDatePicker: 'static/glDatePicker',
         SingleMove: 'SingleMove',
         MultipleMoves: 'MultipleMoves',
         SingleMoveEdit: 'SingleMoveEdit'
     }
 });
 
-define(['jquery', 'glDatePicker', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'], function (jQuery) {
+define(['jquery', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit'],
+    function (jQuery, _, Backbone, SingleMove, MultipleMoves, SingleMoveEdit) {
 
-    jQuery(function () {
-        new window.app.MultipleMovesCollectionView();
+        jQuery(function () {
+            new window.app.MultipleMovesCollectionView();
+        });
     });
-
-});
 
 

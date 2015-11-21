@@ -1,11 +1,14 @@
-define(['jquery', 'glDatePicker', 'underscore', 'backbone'], function ($, glDatePicker, _, Backbone) {
+define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
 
     $(function () {
 
         window.app = window.app || {};
 
         app.SingleMoveEditView = Backbone.View.extend({
-            el: '#editMoveView',
+            tagName: 'div',
+            id: 'editMoveView',
+            $body: jQuery('body'),
+
             template: _.template($('#moving-edit-template').html()),
 
             events: {
@@ -19,11 +22,9 @@ define(['jquery', 'glDatePicker', 'underscore', 'backbone'], function ($, glDate
 
             onRejectChanges: function () {
 
-                this.$el.closest('body').removeClass('overlay-enabled');
-                this.$el
-                    .empty()
-                    .hide();
                 this.unbind();
+                this.remove();
+                this.$body.removeClass('overlay-enabled');
             },
 
             initialize: function () {
@@ -36,11 +37,8 @@ define(['jquery', 'glDatePicker', 'underscore', 'backbone'], function ($, glDate
                 this.$el.html(
                     this.template(this.model.toJSON())
                 );
-                this.$el.find('[data-type="date"]').glDatePicker({
-                    selectedDate: new Date(this.model.attributes.date)
-                });
-                this.$el.show();
-                this.$el.closest('body').addClass('overlay-enabled');
+                this.$body.append(this.$el);
+                this.$body.addClass('overlay-enabled');
                 return this;
             }
         });

@@ -116,7 +116,6 @@ body.overlay-enabled {
     margin-left: -150px;
     z-index: 2;
     background: snow;
-    display: none;
 }
 
 #editMoveView > * {
