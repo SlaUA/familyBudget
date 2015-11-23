@@ -2,7 +2,7 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="webdav">
+      <paths name="webdav-old">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
