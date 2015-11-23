@@ -21,6 +21,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
                 this.collection.fetch();
                 this.collection.bind('add', this.onSingleMoveAdd, this);
+                this.collection.bind('reset', this.render, this);
                 this.render();
             },
 

@@ -45,6 +45,7 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
 
                 app.multipleMovesCollection.add(newMove);
 
+                newMove.save();
                 this.trigger('closePopup');
             },
 

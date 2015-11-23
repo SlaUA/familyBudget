@@ -27,7 +27,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, B
 
                 this.remove();
                 this.unbind();
-                this.model.collection.remove(this.model);
+                this.model.destroy();
             },
 
             onCommentClick: function () {
