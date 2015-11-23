@@ -45,6 +45,7 @@ body.overlay-enabled {
     width: 100%;
     text-align: center;
     table-layout: fixed;
+    font-weight: bold;
 }
 
 #moves {

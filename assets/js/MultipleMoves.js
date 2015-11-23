@@ -4,37 +4,12 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
         window.app = window.app || {};
 
-        app.MultipleMovesCollection = Backbone.Collection.extend({
-            model: app.SingleMoveModel
+        app.MultipleMovesCollectionConstructor = Backbone.Collection.extend({
+            model: app.SingleMoveModel,
+            localStorage: new Backbone.LocalStorage('movesCollection')
         });
 
-        // TODO: add localStorage adapter
-
-        localStorage.setItem('appData',
-            JSON.stringify(
-                [{
-                    date: Date.now(),
-                    type: 'income',
-                    sum: 40000,
-                    comment: 'Зарплата'
-                }, {
-                    date: new Date(2015, 9, 15).getTime(),
-                    type: 'expense',
-                    sum: 10000,
-                    comment: 'Приватбанк, credit card'
-                }, {
-                    date: new Date(2015, 9, 15).getTime(),
-                    type: 'expense',
-                    sum: 10000,
-                    comment: 'Приватбанк, credit card'
-                }]
-            ));
-
-        app.multipleMovesCollection = new app.MultipleMovesCollection(
-            JSON.parse(localStorage.getItem('appData'))
-        );
-
-        // -- END OF TODO -- //
+        app.multipleMovesCollection = new app.MultipleMovesCollectionConstructor();
 
         app.MultipleMovesCollectionView = Backbone.View.extend({
 
@@ -44,6 +19,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
             initialize: function () {
 
+                this.collection.fetch();
                 this.collection.bind('add', this.onSingleMoveAdd, this);
                 this.render();
             },

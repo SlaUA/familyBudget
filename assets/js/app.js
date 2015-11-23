@@ -4,6 +4,7 @@ require.config({
         jquery: 'static/jQuery',
         underscore: 'static/underscore',
         backbone: 'static/backbone',
+        backboneLocalStorage: 'static/backboneLocalStorage',
         fastclick: 'static/fastclick',
         SingleMove: 'SingleMove',
         MultipleMoves: 'MultipleMoves',
@@ -16,6 +17,7 @@ require.config({
 define(['jquery',
     'underscore',
     'backbone',
+    'backboneLocalStorage',
     'SingleMove',
     'MultipleMoves',
     'SingleMoveEdit',
@@ -25,6 +27,7 @@ define(['jquery',
 ], function (jQuery,
              _,
              Backbone,
+             backboneLocalStorage,
              SingleMove,
              MultipleMoves,
              SingleMoveEdit,
@@ -33,6 +36,7 @@ define(['jquery',
              fastclick) {
 
     jQuery(function () {
+
         fastclick.attach(document.body);
         new window.app.MultipleMovesCollectionView();
         new window.app.MainAppView();
