@@ -39,7 +39,7 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
                 var newMove = new app.SingleMoveModel({
                     date: new Date(dateSource.join('/')).getTime(),
                     type: this.$el.find('.typeEdit').val(),
-                    sum: this.$el.find('.sumEdit').val(),
+                    sum: parseInt(this.$el.find('.sumEdit').val(), 10) || 0,
                     comment: this.$el.find('.editMoveComment').val()
                 });
 

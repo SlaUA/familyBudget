@@ -43,14 +43,14 @@
     </div>
 </script>
 <script id="addNewMove" type="text/template">
-    <input class="dateEdit" type="text"
+    <input class="dateEdit" type="text" placeholder="Дата, дд.мм.гггг."
            value="<%=new Date().getDate()%>.<%=new Date().getMonth()+1%>.<%= new Date().getFullYear()%>">
     <select class="typeEdit">
         <option value="expense">Расход</option>
         <option value="income">Доход</option>
     </select>
-    <input class="sumEdit" value="0">
-    <textarea class="editMoveComment"></textarea>
+    <input class="sumEdit" placeholder="Сумма движения">
+    <textarea class="editMoveComment" placeholder="Комментарий"></textarea>
     <div class="bottomButtonsWrapper">
         <div class="acceptMoveChanges bottomButtons">Добавить</div>
         <div class="rejectMoveChanges bottomButtons">Закрыть</div>
@@ -59,7 +59,9 @@
 
 <div id="movesApp">
     <div id="movesWrapper">
-        <div class="moveAdd"></div>
+        <div class="moveAddWrapper">
+            <div class="moveAdd">Добавить запись</div>
+        </div>
         <div class="movesHeader">
             <div class="dateColumn">
                 Дата

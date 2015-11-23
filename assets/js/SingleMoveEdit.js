@@ -39,9 +39,11 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
                 this.model.set({
                     date: new Date(dateSource.join('/')).getTime(),
                     type: this.$el.find('.typeEdit').val(),
-                    sum: this.$el.find('.sumEdit').val(),
+                    sum: parseInt(this.$el.find('.sumEdit').val(), 10),
                     comment: this.$el.find('.editMoveComment').val()
                 });
+
+                this.model.save();
 
                 this.trigger('closePopup');
             },
