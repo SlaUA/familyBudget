@@ -3,21 +3,21 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
     $(function () {
 
         window.app = window.app || {};
+        app.SingleMoveAdd = Backbone.View.extend({
 
-        app.SingleMoveEditView = Backbone.View.extend({
             tagName: 'div',
             id: 'editMoveView',
             $body: jQuery('body'),
 
-            template: _.template($('#moving-edit-template').html()),
+            template: _.template($('#addNewMove').html()),
 
             events: {
-                'click .acceptMoveChanges': 'onUpdateChanges',
-                'click .rejectMoveChanges': 'closeMoveEdit'
+                'click .acceptMoveChanges': 'addNewMove',
+                'click .rejectMoveChanges': 'closeMoveAdd'
             },
 
             customEventsMap: {
-                closePopup: 'closeMoveEdit'
+                closePopup: 'closeMoveAdd'
             },
 
             subscribeForCustomEvents: function () {
@@ -30,23 +30,25 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
                 }
             },
 
-            onUpdateChanges: function () {
+            addNewMove: function () {
 
                 // change date from existing format (dd.mm.yyyy) to yyyy/mm/dd
                 var dateSource = this.$el.find('.dateEdit').val().split('.');
                 dateSource[0] = dateSource.splice(2, 1, dateSource[0])[0];
 
-                this.model.set({
+                var newMove = new app.SingleMoveModel({
                     date: new Date(dateSource.join('/')).getTime(),
                     type: this.$el.find('.typeEdit').val(),
                     sum: this.$el.find('.sumEdit').val(),
                     comment: this.$el.find('.editMoveComment').val()
                 });
 
+                app.multipleMovesCollection.add(newMove);
+
                 this.trigger('closePopup');
             },
 
-            closeMoveEdit: function () {
+            closeMoveAdd: function () {
 
                 this.unbind();
                 this.remove();
@@ -55,7 +57,6 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
 
             initialize: function () {
 
-                this.listenTo(this.model, 'change', this.render);
                 this.subscribeForCustomEvents();
                 this.render();
             },
@@ -63,7 +64,7 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
             render: function () {
 
                 this.$el.html(
-                    this.template(this.model.toJSON())
+                    this.template()
                 );
                 this.$body.append(this.$el);
                 this.$body.addClass('overlay-enabled');

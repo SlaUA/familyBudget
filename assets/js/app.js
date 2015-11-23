@@ -7,15 +7,34 @@ require.config({
         fastclick: 'static/fastclick',
         SingleMove: 'SingleMove',
         MultipleMoves: 'MultipleMoves',
-        SingleMoveEdit: 'SingleMoveEdit'
+        SingleMoveEdit: 'SingleMoveEdit',
+        SingleMoveAdd: 'SingleMoveAdd',
+        MainAppView: 'MainAppView'
     }
 });
 
-define(['jquery', 'underscore', 'backbone', 'SingleMove', 'MultipleMoves', 'SingleMoveEdit', 'fastclick'],
-    function (jQuery, _, Backbone, SingleMove, MultipleMoves, SingleMoveEdit, fastclick) {
+define(['jquery',
+    'underscore',
+    'backbone',
+    'SingleMove',
+    'MultipleMoves',
+    'SingleMoveEdit',
+    'SingleMoveAdd',
+    'MainAppView',
+    'fastclick'
+], function (jQuery,
+             _,
+             Backbone,
+             SingleMove,
+             MultipleMoves,
+             SingleMoveEdit,
+             SingleMoveAdd,
+             MainAppView,
+             fastclick) {
 
-        jQuery(function () {
-            fastclick.attach(document.body);
-            new window.app.MultipleMovesCollectionView();
-        });
+    jQuery(function () {
+        fastclick.attach(document.body);
+        new window.app.MultipleMovesCollectionView();
+        new window.app.MainAppView();
     });
+});

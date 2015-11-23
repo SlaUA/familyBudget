@@ -44,11 +44,11 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
             initialize: function () {
 
-                this.collection.bind('add', this.onMovingAdd, this);
+                this.collection.bind('add', this.onSingleMoveAdd, this);
                 this.render();
             },
 
-            onMovingAdd: function (newMovingModel) {
+            onSingleMoveAdd: function (newMovingModel) {
 
                 var newMove = new app.SingleMoveView({
                     model: newMovingModel

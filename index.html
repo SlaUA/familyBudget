@@ -24,24 +24,42 @@
     </div>
     <div class="removeColumn">&#215;</div>
 </script>
-
 <script id="moving-edit-template" type="text/template">
-    <input type="text" data-type="date"
+    <input class="dateEdit" type="text"
            value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
-    <select>
-        <option value="-">Расход</option>
-        <option value="+">Доход</option>
+    <select class="typeEdit">
+        <option value="expense"
+        <% if (type==='expense') { %> selected <% } %>
+        >Расход</option>
+        <option value="income"
+        <% if (type==='income') { %> selected <% } %>
+        >Доход</option>
     </select>
-    <input value="<%= sum %>">
+    <input class="sumEdit" value="<%= sum %>">
     <textarea class="editMoveComment"><%= comment %></textarea>
     <div class="bottomButtonsWrapper">
         <div class="acceptMoveChanges bottomButtons">OK:)</div>
         <div class="rejectMoveChanges bottomButtons">Отмена</div>
     </div>
 </script>
+<script id="addNewMove" type="text/template">
+    <input class="dateEdit" type="text"
+           value="<%=new Date().getDate()%>.<%=new Date().getMonth()+1%>.<%= new Date().getFullYear()%>">
+    <select class="typeEdit">
+        <option value="expense">Расход</option>
+        <option value="income">Доход</option>
+    </select>
+    <input class="sumEdit" value="0">
+    <textarea class="editMoveComment"></textarea>
+    <div class="bottomButtonsWrapper">
+        <div class="acceptMoveChanges bottomButtons">Добавить</div>
+        <div class="rejectMoveChanges bottomButtons">Закрыть</div>
+    </div>
+</script>
 
 <div id="movesApp">
     <div id="movesWrapper">
+        <div class="moveAdd"></div>
         <div class="movesHeader">
             <div class="dateColumn">
                 Дата

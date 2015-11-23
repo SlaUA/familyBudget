@@ -15,6 +15,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, B
 
         app.SingleMoveView = Backbone.View.extend({
             tagName: 'div',
+            className: 'moveRow',
             template: _.template($('#moving-template').html()),
 
             events: {
@@ -43,16 +44,18 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, B
 
             render: function () {
 
-                this.$el.html(
-                    this.template(this.model.toJSON())
+                this.$el
+                    .removeClass('incomeRow expenseRow')
+                    .html(
+                        this.template(this.model.toJSON())
+                    );
+
+                this.$el.addClass(
+                    this.model.get('type') === 'income' ?
+                        'incomeRow'
+                        :
+                        'expenseRow'
                 );
-
-                if (this.model.get('type') === 'income') {
-                    this.$el.addClass('moveRow incomeRow');
-                } else {
-                    this.$el.addClass('moveRow expenseRow');
-                }
-
                 return this;
             }
         });
