@@ -9,10 +9,10 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveAdd'], function (jQuery, 
             $body: jQuery('body'),
 
             events: {
-                'click .moveAdd': 'startAddNewMove'
+                'click .moveAdd': 'createNewMovePopup'
             },
 
-            startAddNewMove: function () {
+            createNewMovePopup: function () {
                 new app.SingleMoveAdd();
             }
         });

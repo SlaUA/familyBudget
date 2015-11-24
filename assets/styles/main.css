@@ -35,7 +35,7 @@ body.overlay-enabled {
     margin: 5px 3px 0;
 }
 
-#movesWrapper {
+.movesWrapper {
     width: 100%;
     min-width: 310px;
 }
@@ -48,7 +48,7 @@ body.overlay-enabled {
     font-weight: bold;
 }
 
-#moves {
+.moves {
     display: table;
     width: 100%;
     table-layout: fixed;
@@ -91,6 +91,9 @@ body.overlay-enabled {
 
 .dateColumn {
     width: 23%;
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 .typeColumn {
@@ -112,6 +115,9 @@ body.overlay-enabled {
 
 .removeColumn {
     width: 10%;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
 }
 
 .moveRow.incomeRow {
@@ -122,7 +128,7 @@ body.overlay-enabled {
     background: rgba(255, 0, 0, 0.5);
 }
 
-#movesHeaders .removeColumn, #movesHeaders .editColumn {
+.movesHeaders .removeColumn, .movesHeaders .editColumn {
     font-weight: normal;
     font-size: 16px;
 }
@@ -146,7 +152,7 @@ body.overlay-enabled {
 
 /*edit move*/
 
-#editMoveView {
+.editMoveView {
     position: fixed;
     width: 300px;
     height: 300px;
@@ -156,9 +162,12 @@ body.overlay-enabled {
     margin-left: -150px;
     z-index: 2;
     background: snow;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
-#editMoveView > * {
+.editMoveView > * {
     width: 270px;
     display: block;
     margin: 10px auto 0;
@@ -170,18 +179,18 @@ body.overlay-enabled {
     font-size: 20px;
 }
 
-#editMoveView .editMoveComment {
+.editMoveView .editMoveComment {
     height: 100px;
     overflow: auto;
 }
 
-#editMoveView .bottomButtonsWrapper {
+.editMoveView .bottomButtonsWrapper {
     line-height: 35px;
     text-align: center;
     outline: 0;
 }
 
-#editMoveView .bottomButtons {
+.editMoveView .bottomButtons {
     display: inline-block;
     width: 45%;
     height: 100%;
@@ -205,3 +214,11 @@ body.overlay-enabled {
 }
 
 /*end edit move*/
+
+.total {
+    height: 50px;
+    margin: 10px 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}

@@ -4,22 +4,29 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
         window.app = window.app || {};
 
-        app.MultipleMovesCollectionConstructor = Backbone.Collection.extend({
+        var MultipleMovesCollectionConstructor = Backbone.Collection.extend({
             model: app.SingleMoveModel,
             localStorage: new Backbone.LocalStorage('movesCollection')
         });
 
-        app.multipleMovesCollection = new app.MultipleMovesCollectionConstructor();
+        app.multipleMovesCollection = new MultipleMovesCollectionConstructor();
 
         app.MultipleMovesCollectionView = Backbone.View.extend({
 
-            el: $('#moves'),
+            el: $('.moves'),
 
             collection: app.multipleMovesCollection,
 
             initialize: function () {
 
-                this.collection.fetch();
+                this.collection
+                    .fetch({async: false})
+                    .done(function () {
+
+                    })
+                    .fail(function () {
+
+                    });
                 this.collection.bind('add', this.onSingleMoveAdd, this);
                 this.collection.bind('reset', this.render, this);
                 this.render();

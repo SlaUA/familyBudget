@@ -6,7 +6,7 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
 
         app.SingleMoveEditView = Backbone.View.extend({
             tagName: 'div',
-            id: 'editMoveView',
+            className: 'editMoveView',
             $body: jQuery('body'),
 
             template: _.template($('#moving-edit-template').html()),

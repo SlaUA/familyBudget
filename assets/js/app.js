@@ -40,7 +40,7 @@ define(['jquery',
         // remove click lag on mobile devices
         fastclick.attach(document.body);
 
-        new window.app.MultipleMovesCollectionView();
         new window.app.MainAppView();
+        new window.app.MultipleMovesCollectionView();
     });
 });
