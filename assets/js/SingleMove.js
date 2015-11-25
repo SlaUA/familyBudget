@@ -1,64 +1,61 @@
 define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, Backbone) {
 
-    $(function () {
+    window.app = window.app || {};
 
-        window.app = window.app || {};
+    app.SingleMoveModel = Backbone.Model.extend({
+        defaults: {
+            date: Date.now(),
+            type: 'income',
+            sum: 0,
+            comment: ''
+        }
+    });
 
-        app.SingleMoveModel = Backbone.Model.extend({
-            defaults: {
-                date: Date.now(),
-                type: 'income',
-                sum: 0,
-                comment: ''
-            }
-        });
+    app.SingleMoveView = Backbone.View.extend({
+        tagName: 'div',
+        className: 'moveRow',
+        template: _.template($('#moving-template').html()),
 
-        app.SingleMoveView = Backbone.View.extend({
-            tagName: 'div',
-            className: 'moveRow',
-            template: _.template($('#moving-template').html()),
+        events: {
+            'click .removeColumn': 'onMoveRemoveClick',
+            'click .commentColumn': 'onCommentClick'
+        },
 
-            events: {
-                'click .removeColumn': 'onMoveRemoveClick',
-                'click .commentColumn': 'onCommentClick'
-            },
+        onMoveRemoveClick: function () {
 
-            onMoveRemoveClick: function () {
+            this.remove();
+            this.unbind();
+            this.model.destroy();
+        },
 
-                this.remove();
-                this.unbind();
-                this.model.destroy();
-            },
+        onCommentClick: function () {
 
-            onCommentClick: function () {
+            new app.SingleMoveEditView({
+                model: this.model
+            });
+        },
 
-                new app.SingleMoveEditView({
-                    model: this.model
-                });
-            },
+        initialize: function () {
+            this.listenTo(this.model, 'change', this.render);
+            this.render();
+        },
 
-            initialize: function () {
-                this.listenTo(this.model, 'change', this.render);
-                this.render();
-            },
+        render: function () {
 
-            render: function () {
-
-                this.$el
-                    .removeClass('incomeRow expenseRow')
-                    .html(
-                        this.template(this.model.toJSON())
-                    );
-
-                this.$el.addClass(
-                    this.model.get('type') === 'income' ?
-                        'incomeRow'
-                        :
-                        'expenseRow'
+            this.$el
+                .removeClass('incomeRow expenseRow')
+                .html(
+                    this.template(this.model.toJSON())
                 );
-                return this;
-            }
-        });
+
+            this.$el.addClass(
+                this.model.get('type') === 'income' ?
+                    'incomeRow'
+                    :
+                    'expenseRow'
+            );
+            return this;
+        }
     });
 });
 

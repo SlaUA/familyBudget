@@ -10,7 +10,7 @@ require.config({
         MultipleMoves: 'MultipleMoves',
         SingleMoveEdit: 'SingleMoveEdit',
         SingleMoveAdd: 'SingleMoveAdd',
-        MainAppView: 'MainAppView'
+        MainAppView: 'views/MainAppView'
     }
 });
 
@@ -22,7 +22,7 @@ define(['jquery',
     'MultipleMoves',
     'SingleMoveEdit',
     'SingleMoveAdd',
-    'MainAppView',
+    'views/MainAppView',
     'fastclick'
 ], function (jQuery,
              _,

@@ -1,55 +1,49 @@
 define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backbone) {
 
-    $(function () {
+    window.app = window.app || {};
 
-        window.app = window.app || {};
 
-        var MultipleMovesCollectionConstructor = Backbone.Collection.extend({
-            model: app.SingleMoveModel,
-            localStorage: new Backbone.LocalStorage('movesCollection')
-        });
 
-        app.multipleMovesCollection = new MultipleMovesCollectionConstructor();
+    app.multipleMovesCollection = new MultipleMovesCollection();
 
-        app.MultipleMovesCollectionView = Backbone.View.extend({
+    app.MultipleMovesCollectionView = Backbone.View.extend({
 
-            el: $('.moves'),
+        el: $('.moves'),
 
-            collection: app.multipleMovesCollection,
+        collection: app.multipleMovesCollection,
 
-            initialize: function () {
+        initialize: function () {
 
-                this.collection
-                    .fetch({async: false})
-                    .done(function () {
+            this.collection
+                .fetch({async: false})
+                .done(function () {
 
-                    })
-                    .fail(function () {
+                })
+                .fail(function () {
 
-                    });
-                this.collection.bind('add', this.onSingleMoveAdd, this);
-                this.collection.bind('reset', this.render, this);
-                this.render();
-            },
-
-            onSingleMoveAdd: function (newMovingModel) {
-
-                var newMove = new app.SingleMoveView({
-                    model: newMovingModel
                 });
-                this.$el.append(newMove.el);
-            },
+            this.collection.bind('add', this.onSingleMoveAdd, this);
+            this.collection.bind('reset', this.render, this);
+            this.render();
+        },
 
-            render: function () {
+        onSingleMoveAdd: function (newMovingModel) {
 
-                this.$el.empty();
-                this.collection.each(function (moveModel) {
-                    var singleMove = new app.SingleMoveView({
-                        model: moveModel
-                    });
-                    this.$el.append(singleMove.el);
-                }, this);
-            }
-        });
+            var newMove = new app.SingleMoveView({
+                model: newMovingModel
+            });
+            this.$el.append(newMove.el);
+        },
+
+        render: function () {
+
+            this.$el.empty();
+            this.collection.each(function (moveModel) {
+                var singleMove = new app.SingleMoveView({
+                    model: moveModel
+                });
+                this.$el.append(singleMove.el);
+            }, this);
+        }
     });
 });
