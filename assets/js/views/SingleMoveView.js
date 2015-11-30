@@ -1,17 +1,7 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'SingleMoveEditView'], function ($, _, Backbone) {
 
-    window.app = window.app || {};
+    return Backbone.View.extend({
 
-    app.SingleMoveModel = Backbone.Model.extend({
-        defaults: {
-            date: Date.now(),
-            type: 'income',
-            sum: 0,
-            comment: ''
-        }
-    });
-
-    app.SingleMoveView = Backbone.View.extend({
         tagName: 'div',
         className: 'moveRow',
         template: _.template($('#moving-template').html()),
@@ -30,7 +20,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveEdit'], function ($, _, B
 
         onCommentClick: function () {
 
-            new app.SingleMoveEditView({
+            new SingleMoveEditView({
                 model: this.model
             });
         },

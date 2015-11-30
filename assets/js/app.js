@@ -6,10 +6,12 @@ require.config({
         backbone: 'static/backbone',
         backboneLocalStorage: 'static/backboneLocalStorage',
         fastclick: 'static/fastclick',
-        SingleMove: 'SingleMove',
-        MultipleMoves: 'MultipleMoves',
-        SingleMoveEdit: 'SingleMoveEdit',
-        SingleMoveAdd: 'SingleMoveAdd',
+        SingleMoveModel: 'models/SingleMoveModel',
+        SingleMoveView: 'views/SingleMoveView',
+        MultipleMovesCollection: 'collections/MultipleMovesCollection',
+        MultipleMovesView: 'views/MultipleMovesView',
+        SingleMoveEditView: 'views/SingleMoveEditView',
+        SingleMoveAddView: 'views/SingleMoveAddView',
         MainAppView: 'views/MainAppView'
     }
 });

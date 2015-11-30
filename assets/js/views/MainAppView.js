@@ -1,6 +1,7 @@
-define(['jquery', 'underscore', 'backbone', '../SingleMoveAdd'], function (jQuery, _, Backbone, SingleMoveAdd) {
+define(['jquery', 'underscore', 'backbone', 'SingleMoveAddView'], function (jQuery, _, Backbone, SingleMoveAddView) {
 
     window.app = window.app || {};
+
     app.MainAppView = Backbone.View.extend({
 
         el: '#movesApp',
@@ -11,7 +12,7 @@ define(['jquery', 'underscore', 'backbone', '../SingleMoveAdd'], function (jQuer
         },
 
         createNewMovePopup: function () {
-            new app.SingleMoveAdd();
+            new SingleMoveAddView();
         }
     });
 });

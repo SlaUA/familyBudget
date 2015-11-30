@@ -1,6 +1,7 @@
 define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
 
     return Backbone.View.extend({
+
         tagName: 'div',
         className: 'editMoveView',
         $body: jQuery('body'),

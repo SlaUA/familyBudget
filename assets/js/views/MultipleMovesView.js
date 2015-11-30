@@ -1,16 +1,10 @@
 define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backbone) {
 
-    window.app = window.app || {};
-
-
-
-    app.multipleMovesCollection = new MultipleMovesCollection();
-
-    app.MultipleMovesCollectionView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         el: $('.moves'),
 
-        collection: app.multipleMovesCollection,
+        collection: window.app.multipleMovesCollection,
 
         initialize: function () {
 
