@@ -1,4 +1,6 @@
-define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'SingleMoveModel'], function (jQuery, _, Backbone, SingleMoveModel) {
+
+    window.app = window.app || {};
 
     return Backbone.View.extend({
 
@@ -33,7 +35,7 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
             var dateSource = this.$el.find('.dateEdit').val().split('.');
             dateSource[0] = dateSource.splice(2, 1, dateSource[0])[0];
 
-            var newMove = new app.SingleMoveModel({
+            var newMove = new SingleMoveModel({
                 date: new Date(dateSource.join('/')).getTime(),
                 type: this.$el.find('.typeEdit').val(),
                 sum: parseInt(this.$el.find('.sumEdit').val(), 10) || 0,

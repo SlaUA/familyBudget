@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMoveEditView'], function ($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'SingleMoveEditView'], function ($, _, Backbone, SingleMoveEditView) {
 
     return Backbone.View.extend({
 

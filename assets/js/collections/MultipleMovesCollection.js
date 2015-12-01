@@ -1,8 +1,7 @@
-define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'backboneLocalStorage', 'SingleMoveModel'], function (jQuery, _, Backbone, backboneLocalStorage, SingleMoveModel) {
 
-    var MultipleMovesCollection = Backbone.Collection.extend({
-        model: app.SingleMoveModel,
+    return Backbone.Collection.extend({
+        model: SingleMoveModel,
         localStorage: new Backbone.LocalStorage('movesCollection')
     });
-    return MultipleMovesCollection;
 });

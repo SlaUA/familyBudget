@@ -1,8 +1,12 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMoveAddView'], function (jQuery, _, Backbone, SingleMoveAddView) {
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'SingleMoveAddView',
+    'fastclick'
+], function (jQuery, _, Backbone, SingleMoveAddView, fastclick) {
 
-    window.app = window.app || {};
-
-    app.MainAppView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         el: '#movesApp',
         $body: jQuery('body'),
@@ -10,7 +14,11 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveAddView'], function (jQue
         events: {
             'click .moveAdd': 'createNewMovePopup'
         },
+        initialize: function () {
 
+            // remove click lag on mobile devices
+            fastclick.attach(document.body);
+        },
         createNewMovePopup: function () {
             new SingleMoveAddView();
         }

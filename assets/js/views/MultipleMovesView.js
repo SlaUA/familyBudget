@@ -1,21 +1,22 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'SingleMoveView', 'MultipleMovesCollection'], function ($, _, Backbone, SingleMoveView, MultipleMovesCollection) {
+
+    window.app = window.app || {};
+    app.multipleMovesCollection = new MultipleMovesCollection();
 
     return Backbone.View.extend({
 
         el: $('.moves'),
 
-        collection: window.app.multipleMovesCollection,
+        collection: app.multipleMovesCollection,
 
         initialize: function () {
 
-            this.collection
-                .fetch({async: false})
+            this.collection.fetch({async: false})
                 .done(function () {
-
                 })
                 .fail(function () {
-
                 });
+
             this.collection.bind('add', this.onSingleMoveAdd, this);
             this.collection.bind('reset', this.render, this);
             this.render();
@@ -23,7 +24,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
         onSingleMoveAdd: function (newMovingModel) {
 
-            var newMove = new app.SingleMoveView({
+            var newMove = new SingleMoveView({
                 model: newMovingModel
             });
             this.$el.append(newMove.el);
@@ -33,7 +34,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMove'], function ($, _, Backb
 
             this.$el.empty();
             this.collection.each(function (moveModel) {
-                var singleMove = new app.SingleMoveView({
+                var singleMove = new SingleMoveView({
                     model: moveModel
                 });
                 this.$el.append(singleMove.el);

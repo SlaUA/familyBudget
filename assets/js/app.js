@@ -16,33 +16,19 @@ require.config({
     }
 });
 
-define(['jquery',
-    'underscore',
-    'backbone',
-    'backboneLocalStorage',
-    'SingleMove',
-    'MultipleMoves',
-    'SingleMoveEdit',
-    'SingleMoveAdd',
-    'views/MainAppView',
-    'fastclick'
+define([
+    'jquery',
+    'MainAppView',
+    'MultipleMovesView'
 ], function (jQuery,
-             _,
-             Backbone,
-             backboneLocalStorage,
-             SingleMove,
-             MultipleMoves,
-             SingleMoveEdit,
-             SingleMoveAdd,
              MainAppView,
-             fastclick) {
+             MultipleMovesView) {
 
     jQuery(function () {
 
-        // remove click lag on mobile devices
-        fastclick.attach(document.body);
+        window.app = window.app || {};
 
-        new window.app.MainAppView();
-        new window.app.MultipleMovesCollectionView();
+        new MainAppView();
+        new MultipleMovesView();
     });
 });
