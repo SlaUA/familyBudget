@@ -6,41 +6,24 @@ require.config({
         backbone: 'static/backbone',
         backboneLocalStorage: 'static/backboneLocalStorage',
         fastclick: 'static/fastclick',
-        SingleMove: 'SingleMove',
-        MultipleMoves: 'MultipleMoves',
-        SingleMoveEdit: 'SingleMoveEdit',
-        SingleMoveAdd: 'SingleMoveAdd',
-        MainAppView: 'MainAppView'
+        SingleMoveModel: 'models/SingleMoveModel',
+        SingleMoveView: 'views/SingleMoveView',
+        MultipleMovesCollection: 'collections/MultipleMovesCollection',
+        MultipleMovesView: 'views/MultipleMovesView',
+        SingleMoveEditView: 'views/SingleMoveEditView',
+        SingleMoveAddView: 'views/SingleMoveAddView',
+        MainAppView: 'views/MainAppView'
     }
 });
 
-define(['jquery',
-    'underscore',
-    'backbone',
-    'backboneLocalStorage',
-    'SingleMove',
-    'MultipleMoves',
-    'SingleMoveEdit',
-    'SingleMoveAdd',
-    'MainAppView',
-    'fastclick'
+define([
+    'jquery',
+    'MainAppView'
 ], function (jQuery,
-             _,
-             Backbone,
-             backboneLocalStorage,
-             SingleMove,
-             MultipleMoves,
-             SingleMoveEdit,
-             SingleMoveAdd,
-             MainAppView,
-             fastclick) {
+             MainAppView) {
 
     jQuery(function () {
 
-        // remove click lag on mobile devices
-        fastclick.attach(document.body);
-
-        new window.app.MainAppView();
-        new window.app.MultipleMovesCollectionView();
+        new MainAppView();
     });
 });
