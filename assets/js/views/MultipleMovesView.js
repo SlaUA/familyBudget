@@ -11,11 +11,13 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveView', 'MultipleMovesColl
 
         initialize: function () {
 
-            this.collection.fetch({async: false})
-                .done(function () {
-                })
-                .fail(function () {
-                });
+            this.collection.fetch();
+                //.done(function () {
+                //
+                //})
+                //.fail(function () {
+                //
+                //});
 
             this.collection.bind('add', this.onSingleMoveAdd, this);
             this.collection.bind('reset', this.render, this);

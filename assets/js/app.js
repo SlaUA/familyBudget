@@ -18,17 +18,12 @@ require.config({
 
 define([
     'jquery',
-    'MainAppView',
-    'MultipleMovesView'
+    'MainAppView'
 ], function (jQuery,
-             MainAppView,
-             MultipleMovesView) {
+             MainAppView) {
 
     jQuery(function () {
 
-        window.app = window.app || {};
-
         new MainAppView();
-        new MultipleMovesView();
     });
 });

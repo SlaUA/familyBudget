@@ -3,8 +3,9 @@ define([
     'underscore',
     'backbone',
     'SingleMoveAddView',
+    'MultipleMovesView',
     'fastclick'
-], function (jQuery, _, Backbone, SingleMoveAddView, fastclick) {
+], function (jQuery, _, Backbone, SingleMoveAddView, MultipleMovesView, fastclick) {
 
     return Backbone.View.extend({
 
@@ -18,6 +19,7 @@ define([
 
             // remove click lag on mobile devices
             fastclick.attach(document.body);
+            new MultipleMovesView();
         },
         createNewMovePopup: function () {
             new SingleMoveAddView();
