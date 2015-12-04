@@ -48,6 +48,16 @@ body.overlay-enabled {
     font-weight: bold;
 }
 
+.movesViewport {
+    height: 300px;
+    overflow: auto;
+    background: powderblue;
+    background: rgba(176, 224, 230, 0.3);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
 .moves {
     display: table;
     width: 100%;
@@ -215,10 +225,28 @@ body.overlay-enabled {
 
 /*end edit move*/
 
-.total {
-    height: 50px;
-    margin: 10px 0;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+/*total sums*/
+
+.totalColumnName {
+    display: inline-block;
+    width: 75px;
 }
+
+.incomeSum {
+    color: green;
+}
+
+.expenseSum {
+    color: red;
+}
+
+.total {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-left: 20px;
+    width: 100%;
+    border-top: 1px solid black;
+}
+
+/*end total sums*/
