@@ -51,11 +51,7 @@ body.overlay-enabled {
 .movesViewport {
     height: 300px;
     overflow: auto;
-    background: powderblue;
     background: rgba(176, 224, 230, 0.3);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
 }
 
 .moves {
@@ -75,6 +71,12 @@ body.overlay-enabled {
     border-bottom: 1px solid black;
 }
 
+.moveRow > div:first-child {
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+}
+
 .moveRow > div:last-child {
     border-left: 1px solid black;
     border-bottom: 1px solid black;
@@ -85,6 +87,12 @@ body.overlay-enabled {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+.movesHeader > div:first-child {
+    -webkit-border-radius: 5px 0 0 5px;
+    -moz-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
 }
 
 .movesHeader > div:last-child {
@@ -101,9 +109,6 @@ body.overlay-enabled {
 
 .dateColumn {
     width: 27%;
-    -webkit-border-radius: 5px 0 0 5px;
-    -moz-border-radius: 5px 0 0 5px;
-    border-radius: 5px 0 0 5px;
 }
 
 .typeColumn {
@@ -131,11 +136,11 @@ body.overlay-enabled {
 }
 
 .moveRow.incomeRow {
-    background: rgba(0, 128, 0, 0.5);
+    background: rgba(0, 128, 0, 0.3);
 }
 
 .moveRow.expenseRow {
-    background: rgba(255, 0, 0, 0.5);
+    background: rgba(255, 0, 0, 0.3);
 }
 
 .movesHeaders .removeColumn, .movesHeaders .editColumn {

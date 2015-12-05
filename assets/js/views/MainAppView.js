@@ -3,9 +3,18 @@ define([
     'underscore',
     'backbone',
     'SingleMoveAddView',
+    'MultipleMovesCollection',
     'MultipleMovesView',
+    'TotalMonthView',
     'fastclick'
-], function (jQuery, _, Backbone, SingleMoveAddView, MultipleMovesView, fastclick) {
+], function (jQuery,
+             _,
+             Backbone,
+             SingleMoveAddView,
+             MultipleMovesCollection,
+             MultipleMovesView,
+             TotalMonthView,
+             fastclick) {
 
     return Backbone.View.extend({
 
@@ -19,7 +28,21 @@ define([
 
             // remove click lag on mobile devices
             fastclick.attach(document.body);
-            new MultipleMovesView();
+
+            app.multipleMovesCollection = new MultipleMovesCollection();
+            app.multipleMovesCollection.fetch()
+                .done(function () {
+
+                    new MultipleMovesView({
+                        collection: app.multipleMovesCollection
+                    });
+                    new TotalMonthView({
+                        collection: app.multipleMovesCollection
+                    });
+                })
+                .fail(function () {
+
+                });
         },
         createNewMovePopup: function () {
             new SingleMoveAddView();
