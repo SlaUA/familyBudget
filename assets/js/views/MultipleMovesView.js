@@ -21,8 +21,6 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveView'], function ($, _, B
 
         initialize: function () {
 
-
-
             this.$movesBody = this.$el.find('.moves');
 
             this.$incomeSum = this.$el.find('.incomeSum');
