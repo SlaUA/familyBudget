@@ -12,7 +12,6 @@ require.config({
         MultipleMovesView: 'views/MultipleMovesView',
         SingleMoveEditView: 'views/SingleMoveEditView',
         SingleMoveAddView: 'views/SingleMoveAddView',
-        TotalMonthView: 'views/TotalMonthView',
         MainAppView: 'views/MainAppView'
     }
 });
@@ -25,7 +24,6 @@ define([
 
     jQuery(function () {
 
-        window.app = window.app || {};
         new MainAppView();
     });
 });

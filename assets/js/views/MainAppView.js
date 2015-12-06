@@ -5,7 +5,6 @@ define([
     'SingleMoveAddView',
     'MultipleMovesCollection',
     'MultipleMovesView',
-    'TotalMonthView',
     'fastclick'
 ], function (jQuery,
              _,
@@ -13,7 +12,6 @@ define([
              SingleMoveAddView,
              MultipleMovesCollection,
              MultipleMovesView,
-             TotalMonthView,
              fastclick) {
 
     return Backbone.View.extend({
@@ -36,14 +34,12 @@ define([
                     new MultipleMovesView({
                         collection: app.multipleMovesCollection
                     });
-                    new TotalMonthView({
-                        collection: app.multipleMovesCollection
-                    });
                 })
                 .fail(function () {
 
                 });
         },
+
         createNewMovePopup: function () {
             new SingleMoveAddView();
         }

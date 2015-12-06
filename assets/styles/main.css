@@ -167,6 +167,28 @@ body.overlay-enabled {
     font-size: 20px;
 }
 
+.dateFilterWrapper {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+}
+
+.dateFilter {
+    display: inline-block;
+}
+
+.dateFilter > * {
+    float: left;
+    margin-right: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.dateFilter > *:last-child {
+    margin-right: 0;
+}
+
 /*edit move*/
 
 .editMoveView {

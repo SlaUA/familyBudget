@@ -8,7 +8,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveModel'], function (jQuery
         className: 'editMoveView',
         $body: jQuery('body'),
 
-        template: _.template($('#addNewMove').html()),
+        template: _.template($('#addNewMove-template').html()),
 
         events: {
             'click .acceptMoveChanges': 'addNewMove',
