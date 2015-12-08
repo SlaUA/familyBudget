@@ -1,1 +1,1 @@
-#With love for Vikusiq :)
+#With love to Vikusiq :)
