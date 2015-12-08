@@ -1,6 +1,14 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMoveModel'], function (jQuery, _, Backbone, SingleMoveModel) {
-
-    window.app = window.app || {};
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'SingleMoveModel',
+    'text!templates/addNewMoveTemplate.html'
+], function (jQuery,
+             _,
+             Backbone,
+             SingleMoveModel,
+             addNewMoveTemplate) {
 
     return Backbone.View.extend({
 
@@ -8,7 +16,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveModel'], function (jQuery
         className: 'editMoveView',
         $body: jQuery('body'),
 
-        template: _.template($('#addNewMove-template').html()),
+        template: _.template(addNewMoveTemplate),
 
         events: {
             'click .acceptMoveChanges': 'addNewMove',
@@ -42,7 +50,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveModel'], function (jQuery
                 comment: this.$el.find('.editMoveComment').val()
             });
 
-            app.multipleMovesCollection.add(newMove);
+            window.app.multipleMovesCollection.add(newMove);
 
             newMove.save();
             this.trigger('closePopup');
@@ -63,9 +71,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveModel'], function (jQuery
 
         render: function () {
 
-            this.$el.html(
-                this.template()
-            );
+            this.$el.html(this.template());
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
             return this;

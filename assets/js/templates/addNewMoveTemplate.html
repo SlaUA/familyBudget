@@ -1,0 +1,12 @@
+<input class="dateEdit" type="text" placeholder="Дата, дд.мм.гггг."
+       value="<%=new Date().getDate()%>.<%=new Date().getMonth()+1%>.<%= new Date().getFullYear()%>">
+<select class="typeEdit">
+    <option value="expense">Расход</option>
+    <option value="income">Доход</option>
+</select>
+<input class="sumEdit" placeholder="Сумма движения">
+<textarea class="editMoveComment" placeholder="Комментарий"></textarea>
+<div class="bottomButtonsWrapper">
+    <div class="acceptMoveChanges bottomButtons">Добавить</div>
+    <div class="rejectMoveChanges bottomButtons">Закрыть</div>
+</div>

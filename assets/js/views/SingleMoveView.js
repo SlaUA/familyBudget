@@ -1,10 +1,20 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMoveEditView'], function ($, _, Backbone, SingleMoveEditView) {
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'SingleMoveEditView',
+    'text!templates/singleMoveTemplate.html'
+], function ($,
+             _,
+             Backbone,
+             SingleMoveEditView,
+             singleMoveTemplate) {
 
     return Backbone.View.extend({
 
         tagName: 'div',
         className: 'moveRow',
-        template: _.template($('#moving-template').html()),
+        template: _.template(singleMoveTemplate),
 
         events: {
             'click .removeColumn': 'onMoveRemoveClick',
@@ -34,9 +44,7 @@ define(['jquery', 'underscore', 'backbone', 'SingleMoveEditView'], function ($, 
 
             this.$el
                 .removeClass('incomeRow expenseRow')
-                .html(
-                    this.template(this.model.toJSON())
-                );
+                .html(this.template(this.model.toJSON()));
 
             this.$el.addClass(
                 this.model.get('type') === 'income' ?

@@ -1,9 +1,11 @@
 require.config({
     enforceDefine: true,
+    baseUrl: 'assets/js',
     paths: {
         jquery: 'static/jQuery',
         underscore: 'static/underscore',
         backbone: 'static/backbone',
+        text: 'static/text',
         backboneLocalStorage: 'static/backboneLocalStorage',
         fastclick: 'static/fastclick',
         SingleMoveModel: 'models/SingleMoveModel',
@@ -21,6 +23,8 @@ define([
     'MainAppView'
 ], function (jQuery,
              MainAppView) {
+
+    window.app = {};
 
     jQuery(function () {
 

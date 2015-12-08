@@ -1,4 +1,12 @@
-define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/moveEditTemplate.html'
+], function (jQuery,
+             _,
+             Backbone,
+             moveEditTemplate) {
 
     return Backbone.View.extend({
 
@@ -6,7 +14,7 @@ define(['jquery', 'underscore', 'backbone'], function (jQuery, _, Backbone) {
         className: 'editMoveView',
         $body: jQuery('body'),
 
-        template: _.template($('#moving-edit-template').html()),
+        template: _.template(moveEditTemplate),
 
         events: {
             'click .acceptMoveChanges': 'onUpdateChanges',

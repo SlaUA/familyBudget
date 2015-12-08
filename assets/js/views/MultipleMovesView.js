@@ -1,12 +1,20 @@
-define(['jquery', 'underscore', 'backbone', 'SingleMoveView'], function ($, _, Backbone, SingleMoveView) {
-
-    window.app = window.app || {};
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'SingleMoveView',
+    'text!templates/dateFilterTemplate.html'
+], function ($,
+             _,
+             Backbone,
+             SingleMoveView,
+             dateFilterTemplate) {
 
     return Backbone.View.extend({
 
         el: '.movesTable',
         collection: null,
-        dateFilterTemplate: _.template($('#dateFilter-template').html()),
+        dateFilterTemplate: _.template(dateFilterTemplate),
 
         $movesBody: null,
         $incomeSum: null,
