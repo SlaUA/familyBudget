@@ -11,6 +11,6 @@
     <platform name="android">
         <preference name="Fullscreen" value="true" />
         <preference name="Orientation" value="portrait" />
-        <icon src="assets/images/icon.jpg" width="180" height="180" />
+        <icon src="assets/images/icon.png" width="180" height="180" />
     </platform>
 </widget>
