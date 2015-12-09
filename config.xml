@@ -13,4 +13,7 @@
         <preference name="Orientation" value="portrait" />
         <icon src="assets/images/icon.png" width="180" height="180" />
     </platform>
+    <icon src="assets/images/icon72.png" width="72" height="72" />
+    <icon src="assets/images/icon48.png" width="48" height="48" />
+    <icon src="assets/images/icon36.png" width="36" height="36" />
 </widget>
