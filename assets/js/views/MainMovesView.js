@@ -18,6 +18,8 @@ define([
              viewManager,
              mainMovesTemplate) {
 
+    window.app = window.app || {};
+
     return Backbone.View.extend({
 
         el: '#movesApp',
@@ -36,7 +38,7 @@ define([
             // remove click lag on mobile devices
             fastclick.attach(document.body);
 
-            app.multipleMovesCollection = new MultipleMovesCollection();
+            window.app.multipleMovesCollection = new MultipleMovesCollection();
             app.multipleMovesCollection.fetch()
                 .done(function () {
 
