@@ -14,20 +14,27 @@ require.config({
         MultipleMovesView: 'views/MultipleMovesView',
         SingleMoveEditView: 'views/SingleMoveEditView',
         SingleMoveAddView: 'views/SingleMoveAddView',
-        MainAppView: 'views/MainAppView'
+        MainMovesView: 'views/MainMovesView',
+        MainAppRouter: 'routers/MainAppRouter',
+        viewManager: 'middleware/viewManager'
     }
 });
 
 define([
     'jquery',
-    'MainAppView'
+    'underscore',
+    'backbone',
+    'MainAppRouter'
 ], function (jQuery,
-             MainAppView) {
+             _,
+             Backbone,
+             MainAppRouter) {
 
-    window.app = {};
+    window.app = window.app || {};
 
     jQuery(function () {
 
-        new MainAppView();
+        new MainAppRouter();
+        Backbone.history.start();
     });
 });

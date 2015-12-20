@@ -5,14 +5,18 @@ define([
     'SingleMoveAddView',
     'MultipleMovesCollection',
     'MultipleMovesView',
-    'fastclick'
+    'fastclick',
+    'viewManager',
+    'text!templates/mainMovesTemplate.html'
 ], function (jQuery,
              _,
              Backbone,
              SingleMoveAddView,
              MultipleMovesCollection,
              MultipleMovesView,
-             fastclick) {
+             fastclick,
+             viewManager,
+             mainMovesTemplate) {
 
     return Backbone.View.extend({
 
@@ -22,7 +26,12 @@ define([
         events: {
             'click .moveAdd': 'createNewMovePopup'
         },
+
         initialize: function () {
+
+            this.$el.append(mainMovesTemplate);
+
+            viewManager.trigger('addNewView', this);
 
             // remove click lag on mobile devices
             fastclick.attach(document.body);

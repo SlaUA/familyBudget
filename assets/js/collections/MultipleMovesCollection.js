@@ -1,4 +1,14 @@
-define(['jquery', 'underscore', 'backbone', 'backboneLocalStorage', 'SingleMoveModel'], function (jQuery, _, Backbone, backboneLocalStorage, SingleMoveModel) {
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'backboneLocalStorage',
+    'SingleMoveModel'
+], function (jQuery,
+             _,
+             Backbone,
+             backboneLocalStorage,
+             SingleMoveModel) {
 
     return Backbone.Collection.extend({
 

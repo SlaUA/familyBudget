@@ -1,11 +1,15 @@
 <input class="dateEdit" type="text"
        value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
+
 <select class="typeEdit">
     <option value="expense" <% if (type==='expense') { %> selected <% } %>>Расход</option>
     <option value="income" <% if (type==='income') { %> selected <% } %>>Доход</option>
 </select>
+
 <input class="sumEdit" value="<%= sum %>">
+
 <textarea class="editMoveComment"><%= comment %></textarea>
+
 <div class="bottomButtonsWrapper">
     <div class="acceptMoveChanges bottomButtons">OK:)</div>
     <div class="rejectMoveChanges bottomButtons">Отмена</div>
