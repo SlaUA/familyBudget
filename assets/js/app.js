@@ -30,9 +30,11 @@ define([
              Backbone,
              MainAppRouter) {
 
-    window.app = window.app || {};
+
 
     jQuery(function () {
+
+        window.app = window.app || {};
 
         new MainAppRouter();
         Backbone.history.start();
