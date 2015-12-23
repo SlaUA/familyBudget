@@ -31,8 +31,11 @@ define([
                 while (length) {
 
                     // same as this.$el.remove();
+                    this.viewsInitiated[length - 1].$el &&
                     this.viewsInitiated[length - 1].$el.empty &&
-                    this.viewsInitiated[length - 1].$el.empty();
+                    this.viewsInitiated[length - 1].$el.empty() &&
+                    this.viewsInitiated[length - 1].$el.off &&
+                    this.viewsInitiated[length - 1].$el.off();
 
                     // unbind events that are
                     // set on this view

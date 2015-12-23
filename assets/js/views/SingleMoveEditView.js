@@ -62,6 +62,8 @@ define([
 
         initialize: function () {
 
+            window.app.trigger('addNewView', this);
+
             this.listenTo(this.model, 'change', this.render);
             this.subscribeForCustomEvents();
             this.render();
@@ -74,6 +76,7 @@ define([
             );
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
+
             return this;
         }
     });

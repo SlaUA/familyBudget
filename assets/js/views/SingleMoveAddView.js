@@ -65,11 +65,14 @@ define([
 
         initialize: function () {
 
+            window.app.trigger('addNewView', this);
+
             this.subscribeForCustomEvents();
             this.render();
         },
 
         render: function () {
+
 
             this.$el.html(this.template());
             this.$body.append(this.$el);
