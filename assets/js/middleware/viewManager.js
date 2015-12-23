@@ -4,70 +4,58 @@ define([
 ], function (_,
              Backbone) {
 
-    try {
-        window.app = window.app || {};
+    return function ViewManager() {
 
-        function ViewManager() {
+        return {
+            viewsInitiated: [],
 
-            var _viewsInitiated = [];
+            init: function () {
 
-            function init() {
+                window.app = _.extend(Backbone.Events, window.app);
 
-                _.extend(this, Backbone.Events);
-                this.on('addNewView', addNewView);
-                this.on('disposeAllViews', disposeAllViews);
-                this.on('disposeOneView', disposeOneView);
-            }
+                window.app.on('addNewView', this.addNewView.bind(this));
+                window.app.on('disposeAllViews', this.disposeAllViews.bind(this));
+                window.app.on('disposeOneView', this.disposeOneView.bind(this));
+            },
 
-            function addNewView(view) {
+            addNewView: function (view) {
 
-                _viewsInitiated.push(view);
-            }
+                this.viewsInitiated.push(view);
+            },
 
             // destroy all views on current route
-            function disposeAllViews() {
+            disposeAllViews: function () {
 
-                var length = _viewsInitiated.length;
+                var length = this.viewsInitiated.length;
 
                 while (length) {
 
                     // same as this.$el.remove();
-                    _viewsInitiated[length - 1].$el.empty &&
-                    _viewsInitiated[length - 1].$el.empty();
+                    this.viewsInitiated[length - 1].$el.empty &&
+                    this.viewsInitiated[length - 1].$el.empty();
 
                     // unbind events that are
                     // set on this view
-                    _viewsInitiated[length - 1].off &&
-                    _viewsInitiated[length - 1].off();
+                    this.viewsInitiated[length - 1].off &&
+                    this.viewsInitiated[length - 1].off();
 
                     // remove all models bindings
                     // made by this view
-                    _viewsInitiated[length - 1].model &&
-                    _viewsInitiated[length - 1].model.off &&
-                    _viewsInitiated[length - 1].model.off(null, null, _viewsInitiated[length - 1]);
+                    this.viewsInitiated[length - 1].model &&
+                    this.viewsInitiated[length - 1].model.off &&
+                    this.viewsInitiated[length - 1].model.off(null, null, this.viewsInitiated[length - 1]);
 
-                    _viewsInitiated.pop();
+                    this.viewsInitiated.pop();
 
                     length--;
                 }
+            },
+
+            disposeOneView: function (view) {
+
+                var indexOfView = this.viewsInitiated.indexOf(view);
+                this.viewsInitiated.splice(indexOfView, 1);
             }
-
-            function disposeOneView(view) {
-
-                var indexOfView = _viewsInitiated.indexOf(view);
-                _viewsInitiated.splice(indexOfView, 1);
-            }
-
-            if (!window.app.viewManager) {
-                window.app.viewManager = this;
-                init.call(this);
-            }
-
-            return window.app.viewManager;
-        }
-    } catch (e) {
-        alert(e.message);
-    }
-
-    return window.app.viewManager || new ViewManager();
+        }.init();
+    };
 });
