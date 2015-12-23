@@ -3,13 +3,13 @@ define([
     'underscore',
     'backbone',
     'SingleMoveView',
-    'viewManager',
+    //'ViewManager',
     'text!templates/dateFilterTemplate.html'
 ], function ($,
              _,
              Backbone,
              SingleMoveView,
-             viewManager,
+             //viewManager,
              dateFilterTemplate) {
 
     return Backbone.View.extend({
@@ -45,7 +45,7 @@ define([
             this.renderDateFilter();
             this.render();
 
-            viewManager.trigger('addNewView', this);
+            window.app.trigger('addNewView', this);
         },
 
         renderDateFilter: function () {

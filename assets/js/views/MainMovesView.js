@@ -6,7 +6,6 @@ define([
     'MultipleMovesCollection',
     'MultipleMovesView',
     'fastclick',
-    'viewManager',
     'text!templates/mainMovesTemplate.html'
 ], function (jQuery,
              _,
@@ -15,10 +14,7 @@ define([
              MultipleMovesCollection,
              MultipleMovesView,
              fastclick,
-             viewManager,
              mainMovesTemplate) {
-
-    window.app = window.app || {};
 
     return Backbone.View.extend({
 
@@ -32,14 +28,13 @@ define([
         initialize: function () {
 
             this.$el.append(mainMovesTemplate);
-
-            viewManager.trigger('addNewView', this);
+            window.app.trigger('addNewView', this);
 
             // remove click lag on mobile devices
             fastclick.attach(document.body);
 
             window.app.multipleMovesCollection = new MultipleMovesCollection();
-            app.multipleMovesCollection.fetch()
+            window.app.multipleMovesCollection.fetch()
                 .done(function () {
 
                     new MultipleMovesView({

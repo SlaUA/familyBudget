@@ -1,12 +1,10 @@
 define([
     'underscore',
     'backbone',
-    'MainMovesView',
-    'viewManager'
+    'MainMovesView'
 ], function (_,
              Backbone,
-             MainMovesView,
-             viewManager) {
+             MainMovesView) {
 
     return Backbone.Router.extend({
 
@@ -18,18 +16,18 @@ define([
 
         savings: function () {
 
-            viewManager.trigger('disposeAllViews');
+            window.app.trigger('disposeAllViews');
         },
 
         home: function () {
 
-            viewManager.trigger('disposeAllViews');
+            window.app.trigger('disposeAllViews');
             new MainMovesView();
         },
 
         notFound: function () {
 
-            viewManager.trigger('disposeAllViews');
+            window.app.trigger('disposeAllViews');
             this.navigate('home', {trigger: true});
         }
     });

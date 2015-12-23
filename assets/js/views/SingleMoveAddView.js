@@ -10,8 +10,6 @@ define([
              SingleMoveModel,
              addNewMoveTemplate) {
 
-    window.app = window.app || {};
-
     return Backbone.View.extend({
 
         tagName: 'div',
@@ -52,7 +50,7 @@ define([
                 comment: this.$el.find('.editMoveComment').val()
             });
 
-            app.multipleMovesCollection.add(newMove);
+            window.app.multipleMovesCollection.add(newMove);
 
             newMove.save();
             this.trigger('closePopup');
