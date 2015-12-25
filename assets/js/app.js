@@ -20,8 +20,6 @@ require.config({
     }
 });
 
-window.app = {};
-
 define([
     'jquery',
     'underscore',
@@ -36,8 +34,14 @@ define([
 
     jQuery(function () {
 
-        new ViewsManager();
-        new MainAppRouter();
-        Backbone.history.start();
+        try {
+            window.app = {};
+
+            new ViewsManager();
+            new MainAppRouter();
+            Backbone.history.start();
+        } catch (e) {
+            alert(e);
+        }
     });
 });
