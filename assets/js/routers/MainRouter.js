@@ -14,6 +14,11 @@ define([
             '*notFound': 'notFound'
         },
 
+        initialize: function () {
+
+            window.app = window.app || {};
+        },
+
         savings: function () {
 
             window.app.trigger('disposeAllViews');

@@ -11,6 +11,7 @@ define([
 
             init: function () {
 
+                window.app = window.app = {} || {};
                 window.app = _.extend(Backbone.Events, window.app);
 
                 window.app.on('addNewView', this.addNewView.bind(this));
