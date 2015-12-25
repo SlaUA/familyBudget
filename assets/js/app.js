@@ -15,7 +15,7 @@ require.config({
         SingleMoveEditView: 'views/SingleMoveEditView',
         SingleMoveAddView: 'views/SingleMoveAddView',
         MainMovesView: 'views/MainMovesView',
-        MainAppRouter: 'routers/MainAppRouter',
+        MainRouter: 'routers/MainRouter',
         ViewsManager: 'middleware/ViewsManager'
     }
 });
@@ -25,23 +25,26 @@ define([
     'underscore',
     'backbone',
     'ViewsManager',
-    'MainAppRouter'
+    'MainRouter'
 ], function (jQuery,
              _,
              Backbone,
              ViewsManager,
-             MainAppRouter) {
+             MainRouter) {
 
     jQuery(function () {
 
+        alert('DOM ready');
+        alert('type of ViewsManager: ' + typeof ViewsManager);
+        alert('type of MainAppRouter: ' + typeof MainAppRouter);
         try {
             window.app = {};
-
+            alert('try in init, window.app: ' + window.app);
             new ViewsManager();
-            new MainAppRouter();
+            new MainRouter();
             Backbone.history.start();
         } catch (e) {
-            alert(e);
+            alert(e.message);
         }
     });
 });
