@@ -34,17 +34,10 @@ define([
 
     jQuery(function () {
 
-        alert('DOM ready');
-        alert('type of ViewsManager: ' + typeof ViewsManager);
-        alert('type of MainAppRouter: ' + typeof MainAppRouter);
-        try {
             window.app = {};
-            alert('try in init, window.app: ' + window.app);
+
             new ViewsManager();
             new MainRouter();
             Backbone.history.start();
-        } catch (e) {
-            alert(e.message);
-        }
     });
 });

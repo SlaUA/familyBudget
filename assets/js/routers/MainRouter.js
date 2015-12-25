@@ -15,40 +15,25 @@ define([
         },
 
         initialize: function () {
-            try {
-                window.app = window.app || {};
-            } catch (e) {
-                alert(e.message)
-            }
+
+            window.app = window.app || {};
         },
 
         savings: function () {
 
-            try {
-                window.app.trigger('disposeAllViews');
-            } catch (e) {
-                alert(e.message);
-            }
+            window.app.trigger('disposeAllViews');
         },
 
         home: function () {
 
-            try {
-                window.app.trigger('disposeAllViews');
-                new MainMovesView();
-            } catch (e) {
-                alert(e.message);
-            }
+            window.app.trigger('disposeAllViews');
+            new MainMovesView();
         },
 
         notFound: function () {
 
-            try {
-                window.app.trigger('disposeAllViews');
-                this.navigate('home', {trigger: true});
-            } catch (e) {
-                alert(e.message);
-            }
+            window.app.trigger('disposeAllViews');
+            this.navigate('home', {trigger: true});
         }
     });
 });
