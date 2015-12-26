@@ -38,6 +38,5 @@ define([
 
             new ViewsManager();
             new MainRouter();
-            Backbone.history.start();
     });
 });

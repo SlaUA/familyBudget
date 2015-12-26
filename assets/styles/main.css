@@ -13,6 +13,7 @@ body {
     font-family: 'Times New Roman', times, serif;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
+    min-width: 300px;
 }
 
 body.overlay-enabled:after {
@@ -211,6 +212,10 @@ body.overlay-enabled {
     padding-left: 5px;
 }
 
+.dateFilter select::-ms-expand {
+    display: none;
+}
+
 .dateFilter select option {
     min-width: 75px;
 }
@@ -339,6 +344,14 @@ body.overlay-enabled {
     padding-left: 20px;
     width: 100%;
     border-top: 1px solid black;
+}
+
+@media screen and (orientation: landscape) {
+    .total {
+        position: static;
+        margin: 15px 0 0 0;
+        width: initial;
+    }
 }
 
 /*end total sums*/

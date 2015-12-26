@@ -45,7 +45,7 @@ define([
             this.renderDateFilter();
             this.render();
 
-            window.app.trigger('addNewView', this);
+            window.app.trigger('addNewView', this, true);
         },
 
         renderDateFilter: function () {

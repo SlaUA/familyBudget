@@ -12,6 +12,9 @@ define([
             init: function () {
 
                 window.app = window.app = {} || {};
+
+                Backbone.View.prototype.close = this.closeView;
+
                 window.app = _.extend(Backbone.Events, window.app);
 
                 window.app.on('addNewView', this.addNewView.bind(this));
@@ -19,8 +22,9 @@ define([
                 window.app.on('disposeOneView', this.disposeOneView.bind(this));
             },
 
-            addNewView: function (view) {
+            addNewView: function (view, removeWrapper) {
 
+                view.removeWrapper = Boolean(removeWrapper);
                 this.viewsInitiated.push(view);
             },
 
@@ -31,26 +35,8 @@ define([
 
                 while (length) {
 
-                    // same as this.$el.remove();
-                    this.viewsInitiated[length - 1].$el &&
-                    this.viewsInitiated[length - 1].$el.empty &&
-                    this.viewsInitiated[length - 1].$el.empty() &&
-                    this.viewsInitiated[length - 1].$el.off &&
-                    this.viewsInitiated[length - 1].$el.off();
-
-                    // unbind events that are
-                    // set on this view
-                    this.viewsInitiated[length - 1].off &&
-                    this.viewsInitiated[length - 1].off();
-
-                    // remove all models bindings
-                    // made by this view
-                    this.viewsInitiated[length - 1].model &&
-                    this.viewsInitiated[length - 1].model.off &&
-                    this.viewsInitiated[length - 1].model.off(null, null, this.viewsInitiated[length - 1]);
-
+                    this.viewsInitiated[length - 1].close();
                     this.viewsInitiated.pop();
-
                     length--;
                 }
             },
@@ -59,6 +45,32 @@ define([
 
                 var indexOfView = this.viewsInitiated.indexOf(view);
                 this.viewsInitiated.splice(indexOfView, 1);
+            },
+
+            closeView: function () {
+
+                //this - > have to be closed view
+
+                // unbind events that are
+                // set on this view
+                this.off &&
+                this.off();
+
+                // remove all models bindings
+                // made by this view
+                this.model &&
+                this.model.off &&
+                this.model.off(null, null, this);
+
+                this.$el &&
+                this.$el.empty &&
+                this.$el.empty() &&
+                this.$el.off &&
+                this.$el.off();
+
+                if (this.removeWrapper) {
+                    this.remove();
+                }
             }
         }.init();
     };

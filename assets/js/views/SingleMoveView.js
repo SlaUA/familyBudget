@@ -36,6 +36,9 @@ define([
         },
 
         initialize: function () {
+
+            window.app.trigger('addNewView', this, true);
+
             this.listenTo(this.model, 'change', this.render);
             this.render();
         },

@@ -23,6 +23,14 @@ define([
             'click .rejectMoveChanges': 'closeMoveAdd'
         },
 
+        initialize: function () {
+
+            window.app.trigger('addNewView', this, true);
+
+            this.subscribeForCustomEvents();
+            this.render();
+        },
+
         customEventsMap: {
             closePopup: 'closeMoveAdd'
         },
@@ -63,13 +71,6 @@ define([
             this.$body.removeClass('overlay-enabled');
         },
 
-        initialize: function () {
-
-            window.app.trigger('addNewView', this);
-
-            this.subscribeForCustomEvents();
-            this.render();
-        },
 
         render: function () {
 

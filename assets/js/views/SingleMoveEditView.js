@@ -25,6 +25,15 @@ define([
             closePopup: 'closeMoveEdit'
         },
 
+        initialize: function () {
+
+            window.app.trigger('addNewView', this, true);
+
+            this.listenTo(this.model, 'change', this.render);
+            this.subscribeForCustomEvents();
+            this.render();
+        },
+
         subscribeForCustomEvents: function () {
 
             for (var event in this.customEventsMap) {
@@ -60,14 +69,6 @@ define([
             this.$body.removeClass('overlay-enabled');
         },
 
-        initialize: function () {
-
-            window.app.trigger('addNewView', this);
-
-            this.listenTo(this.model, 'change', this.render);
-            this.subscribeForCustomEvents();
-            this.render();
-        },
 
         render: function () {
 

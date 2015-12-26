@@ -16,7 +16,7 @@ define([
 
         initialize: function () {
 
-            window.app = window.app || {};
+            Backbone.history.start();
         },
 
         savings: function () {

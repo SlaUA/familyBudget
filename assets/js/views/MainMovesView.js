@@ -27,8 +27,8 @@ define([
 
         initialize: function () {
 
+            this.$body.removeAttr('class');
             this.$el.append(mainMovesTemplate);
-            window.app.trigger('addNewView', this);
 
             // remove click lag on mobile devices
             fastclick.attach(document.body);
@@ -43,7 +43,10 @@ define([
                 })
                 .fail(function () {
 
+                    alert('Данные не загрузились, попробуйте позже');
                 });
+
+            window.app.trigger('addNewView', this);
         },
 
         createNewMovePopup: function () {
