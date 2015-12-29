@@ -13,7 +13,7 @@
         <preference name="Orientation" value="portrait" />
         <icon src="assets/images/icon.png" width="180" height="180" />
     </platform>
-    <!--<plugin name="com.flyacts.crosswalk.engine" spec="1.3.1" source="pgb" />-->
+    <plugin name="com.flyacts.crosswalk.engine" spec="1.3.1" source="pgb" />
     <icon src="assets/images/icon72.png" width="72" height="72" />
     <icon src="assets/images/icon48.png" width="48" height="48" />
     <icon src="assets/images/icon36.png" width="36" height="36" />
