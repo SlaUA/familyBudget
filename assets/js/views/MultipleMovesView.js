@@ -3,18 +3,16 @@ define([
     'underscore',
     'backbone',
     'SingleMoveView',
-    //'ViewManager',
     'text!templates/dateFilterTemplate.html'
 ], function ($,
              _,
              Backbone,
              SingleMoveView,
-             //viewManager,
              dateFilterTemplate) {
 
     return Backbone.View.extend({
 
-        el: '.movesTable',
+        el: '.movesWholeWrapper',
         collection: null,
         dateFilterTemplate: _.template(dateFilterTemplate),
 
@@ -31,11 +29,10 @@ define([
 
         initialize: function () {
 
-            this.$movesBody = this.$el.find('.moves');
-
-            this.$incomeSum = this.$el.find('.incomeSum');
+            this.$movesBody  = this.$el.find('.moves');
+            this.$incomeSum  = this.$el.find('.incomeSum');
             this.$expenseSum = this.$el.find('.expenseSum');
-            this.$totalSum = this.$el.find('.totalSum');
+            this.$totalSum   = this.$el.find('.totalSum');
 
             this.collection.bind('add', this.render, this);
             this.collection.bind('change', this.render, this);
@@ -60,15 +57,15 @@ define([
             );
 
             this.$monthFilter = this.$el.find('#monthFilter');
-            this.$yearFilter = this.$el.find('#yearFilter');
+            this.$yearFilter  = this.$el.find('#yearFilter');
         },
 
         render: function () {
 
-            var totalExpenseSum = 0,
-                totalIncomeSum = 0,
-                monthSelected = parseInt(this.$monthFilter.val()),
-                yearSelected = parseInt(this.$yearFilter.val()),
+            var totalExpenseSum    = 0,
+                totalIncomeSum     = 0,
+                monthSelected      = parseInt(this.$monthFilter.val()),
+                yearSelected       = parseInt(this.$yearFilter.val()),
                 filteredCollection = this.collection.filterByDate(monthSelected, yearSelected);
 
             this.$movesBody.empty();

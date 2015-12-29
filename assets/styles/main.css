@@ -36,43 +36,25 @@ body.overlay-enabled {
 /* main screen */
 
 #movesApp {
-    margin: 10px 3px 0;
     height: 100%;
-}
-
-.movesWrapper {
-    width: 100%;
-    min-width: 310px;
-}
-
-.movesTable {
-    height: 50%;
 }
 
 .movesHeader {
-    display: table;
-    width: 100%;
-    text-align: center;
-    table-layout: fixed;
+    display: flex;
     font-weight: bold;
+    flex-grow: 1;
 }
 
-.movesViewport {
+.movesWholeWrapper {
     height: 100%;
-    overflow: auto;
-    background: rgba(176, 224, 230, 0.3);
-}
-
-.moves {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
+    display: flex;
+    flex-direction: column;
+    margin: 0 3px;
 }
 
 .moveRow {
-    display: table-row;
-    overflow: hidden;
-    margin-bottom: 5px;
+    display: flex;
+    min-height: 40px;
 }
 
 .moveRow > div {
@@ -108,12 +90,22 @@ body.overlay-enabled {
     border: 1px solid black;
 }
 
+.movesWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+    flex-grow: 100;
+}
+
 .moveRow > div, .movesHeader > div {
-    display: table-cell;
-    vertical-align: middle;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
     text-align: center;
     word-wrap: break-word;
+    justify-content: center;
 }
 
 .dateColumn {
@@ -130,11 +122,13 @@ body.overlay-enabled {
 
 .commentColumn {
     width: 37%;
-    padding-left: 5px;
+    /*noinspection CssInvalidPropertyValue*/
+    word-break: break-word;
 }
 
 .moveRow > div.commentColumn {
     text-align: left;
+
 }
 
 .removeColumn {
@@ -158,7 +152,11 @@ body.overlay-enabled {
 }
 
 .moveAddWrapper {
-    margin: 10px 0;
+    flex-grow: 1;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    margin: 10px 0 0;
 }
 
 .moveAdd {
@@ -174,10 +172,11 @@ body.overlay-enabled {
 }
 
 .dateFilterWrapper {
-    text-align: center;
-    height: 30px;
-    line-height: 30px;
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: center;
 }
 
 .dateFilter {
@@ -234,6 +233,14 @@ body.overlay-enabled {
     margin-right: 0;
 }
 
+.routesWrapper {
+    flex-grow: 1;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    margin: 10px 0 0;
+}
+
 .routeLink {
     background: #3B5998;
     border-radius: 5px;
@@ -263,7 +270,7 @@ body.overlay-enabled {
     background-size: contain;
 }
 
-/*edit move*/
+/*!*edit move*!*/
 
 .editMoveView {
     position: fixed;
@@ -326,13 +333,19 @@ body.overlay-enabled {
     float: right;
 }
 
-/*end edit move*/
+/*!*end edit move*!*/
 
-/*total sums*/
-
+/*!*total sums*!*/
 .totalColumnName {
+    width: 70px;
     display: inline-block;
-    width: 75px;
+    margin-left: 15px;
+}
+
+.movesMonthTotal {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .incomeSum {
@@ -341,23 +354,6 @@ body.overlay-enabled {
 
 .expenseSum {
     color: red;
-}
-
-.total {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding-left: 20px;
-    width: 100%;
-    border-top: 1px solid black;
-}
-
-@media screen and (orientation: landscape) {
-    .total {
-        position: static;
-        margin: 15px 0 0 0;
-        width: initial;
-    }
 }
 
 /*end total sums*/
