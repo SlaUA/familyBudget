@@ -42,6 +42,7 @@ body.overlay-enabled {
 .movesHeader {
     display: flex;
     font-weight: bold;
+    min-height: 40px;
 }
 
 .movesWholeWrapper {
@@ -92,7 +93,7 @@ body.overlay-enabled {
 .movesWrapper {
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     overflow-y: auto;
     min-height: 0;
 }
