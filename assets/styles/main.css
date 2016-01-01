@@ -50,6 +50,7 @@ body.overlay-enabled {
     display: flex;
     flex-direction: column;
     margin: 0 3px;
+    justify-content: flex-start;
 }
 
 .moveRow {
@@ -93,9 +94,7 @@ body.overlay-enabled {
 .movesWrapper {
     display: flex;
     flex-direction: column;
-    flex: 0 1 auto;
     overflow-y: auto;
-    min-height: 0;
 }
 
 .moveRow > div, .movesHeader > div {
