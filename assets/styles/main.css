@@ -93,6 +93,8 @@ body.overlay-enabled {
 
 .movesWrapper {
     display: flex;
+    flex: 1 1 auto;
+    height: 0;
     flex-direction: column;
     overflow-y: auto;
 }
