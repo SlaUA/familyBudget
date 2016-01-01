@@ -42,7 +42,6 @@ body.overlay-enabled {
 .movesHeader {
     display: flex;
     font-weight: bold;
-    flex-grow: 1;
 }
 
 .movesWholeWrapper {
@@ -96,7 +95,6 @@ body.overlay-enabled {
     flex: 1 1 auto;
     overflow-y: auto;
     min-height: 0;
-    flex-grow: 100;
 }
 
 .moveRow > div, .movesHeader > div {
@@ -152,7 +150,6 @@ body.overlay-enabled {
 }
 
 .moveAddWrapper {
-    flex-grow: 1;
     justify-content: center;
     flex-direction: column;
     display: flex;
@@ -234,7 +231,6 @@ body.overlay-enabled {
 }
 
 .routesWrapper {
-    flex-grow: 1;
     justify-content: center;
     flex-direction: column;
     display: flex;
@@ -337,9 +333,9 @@ body.overlay-enabled {
 
 /*!*total sums*!*/
 .totalColumnName {
-    width: 70px;
+    width: 75px;
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 .movesMonthTotal {
