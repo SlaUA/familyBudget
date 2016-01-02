@@ -133,14 +133,25 @@ body.overlay-enabled {
     width: 7%;
 }
 
+.savingsHeader .typeColumn {
+    border-right: 1px solid black;
+}
+
 .savingsWrapper .currencyColumn,
 .savingsHeader .currencyColumn {
     width: 7%;
 }
 
-.currencyColumn svg text {
-    writing-mode: tb;
-    font-size: 16px;
+.savingsHeader .currencyColumn {
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: tb-rl;
+    text-rendering: optimizeSpeed;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-left: 0;;
 }
 
 .sumColumn {
