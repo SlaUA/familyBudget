@@ -138,6 +138,11 @@ body.overlay-enabled {
     width: 7%;
 }
 
+.currencyColumn svg text {
+    writing-mode: tb;
+    font-size: 16px;
+}
+
 .sumColumn {
     width: 21%;
 }
