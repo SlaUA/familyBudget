@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'SingleSavingModel',
-    'text!templates/addNewSavingTemplate.html'
+    'text!../templates/addNewSavingTemplate.html'
 ], function (jQuery,
              _,
              Backbone,

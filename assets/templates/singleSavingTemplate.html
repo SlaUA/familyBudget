@@ -6,6 +6,18 @@
     <%= type === 'income' ? '+' : '-' %>
 </div>
 
+<div class="currencyColumn">
+    <% if(currency === 'UAH') {%>
+        &#8372;
+    <%}%>
+    <% if(currency === 'USD') { %>
+        $
+    <%}%>
+    <% if(currency === 'EUR') {%>
+        &#8364;
+    <%}%>
+</div>
+
 <div class="sumColumn">
     <%= sum %>
 </div>

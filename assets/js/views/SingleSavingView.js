@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'SingleSavingEditView',
-    'text!templates/singleSavingTemplate.html'
+    'text!../templates/singleSavingTemplate.html'
 ], function ($,
              _,
              Backbone,

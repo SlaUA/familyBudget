@@ -6,7 +6,7 @@ define([
     'MultipleMovesCollection',
     'MultipleMovesView',
     'fastclick',
-    'text!templates/mainMovesTemplate.html'
+    'text!../templates/mainMovesTemplate.html'
 ], function (jQuery,
              _,
              Backbone,

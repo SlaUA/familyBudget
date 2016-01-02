@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/moveEditTemplate.html'
+    'text!../templates/moveEditTemplate.html'
 ], function (jQuery,
              _,
              Backbone,

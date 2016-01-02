@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'SingleMoveModel',
-    'text!templates/addNewMoveTemplate.html'
+    'text!../templates/addNewMoveTemplate.html'
 ], function (jQuery,
              _,
              Backbone,

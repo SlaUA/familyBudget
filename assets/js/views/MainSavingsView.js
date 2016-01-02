@@ -5,7 +5,7 @@ define([
     'SingleSavingAddView',
     'MultipleSavingsCollection',
     'MultipleSavingsView',
-    'text!templates/mainSavingsTemplate.html'
+    'text!../templates/mainSavingsTemplate.html'
 ], function (jQuery,
              _,
              Backbone,

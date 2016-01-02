@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'SingleMoveEditView',
-    'text!templates/singleMoveTemplate.html'
+    'text!../templates/singleMoveTemplate.html'
 ], function ($,
              _,
              Backbone,

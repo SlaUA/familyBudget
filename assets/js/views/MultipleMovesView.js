@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'SingleMoveView',
-    'text!templates/dateFilterTemplate.html'
+    'text!../templates/dateFilterTemplate.html'
 ], function ($,
              _,
              Backbone,

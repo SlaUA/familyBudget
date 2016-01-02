@@ -123,7 +123,6 @@ body.overlay-enabled {
 .savingRow > div.commentColumn,
 .moveRow > div.commentColumn {
     text-align: left;
-
 }
 
 .dateColumn {
@@ -134,6 +133,11 @@ body.overlay-enabled {
     width: 7%;
 }
 
+.savingsWrapper .currencyColumn,
+.savingsHeader .currencyColumn {
+    width: 7%;
+}
+
 .sumColumn {
     width: 21%;
 }
@@ -141,6 +145,11 @@ body.overlay-enabled {
 .commentColumn {
     width: 37%;
     word-break: break-word;
+}
+
+.savingsWrapper .commentColumn,
+.savingsHeader .commentColumn {
+    width: 30%;
 }
 
 .removeColumn {
@@ -364,7 +373,7 @@ body.overlay-enabled {
 }
 
 .savingsMonthTotal .totalColumnName {
-    width: 100px;
+    width: 125px;
 }
 
 .savingsMonthTotal,
