@@ -18,11 +18,11 @@ define([
 
     return Backbone.View.extend({
 
-        el: '#movesApp',
+        el: '#mainWrapper',
         $body: jQuery('body'),
 
         events: {
-            'click .moveAdd': 'createNewMovePopup'
+            'click .addNew': 'createNewMovePopup'
         },
 
         initialize: function () {

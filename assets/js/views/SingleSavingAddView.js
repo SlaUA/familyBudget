@@ -2,25 +2,25 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'SingleMoveModel',
-    'text!templates/addNewMoveTemplate.html'
+    'SingleSavingModel',
+    'text!templates/addNewSavingTemplate.html'
 ], function (jQuery,
              _,
              Backbone,
-             SingleMoveModel,
-             addNewMoveTemplate) {
+             SingleSavingModel,
+             addNewSavingTemplate) {
 
     return Backbone.View.extend({
 
-        tagName: 'div',
-        className: 'editMoveView',
-        $body: jQuery('body'),
+        tagName  : 'div',
+        className: 'editSavingView',
+        $body    : jQuery('body'),
 
-        template: _.template(addNewMoveTemplate),
+        template: _.template(addNewSavingTemplate),
 
         events: {
-            'click .acceptChanges': 'addNewMove',
-            'click .rejectChanges': 'closeMoveAdd'
+            'click .acceptChanges': 'addNewSaving',
+            'click .rejectChanges': 'closeSavingAdd'
         },
 
         initialize: function () {
@@ -32,7 +32,7 @@ define([
         },
 
         customEventsMap: {
-            closePopup: 'closeMoveAdd'
+            closePopup: 'closeSavingAdd'
         },
 
         subscribeForCustomEvents: function () {
@@ -45,26 +45,27 @@ define([
             }
         },
 
-        addNewMove: function () {
+        addNewSaving: function () {
 
             // change date from existing format (dd.mm.yyyy) to yyyy/mm/dd
             var dateSource = this.$el.find('.dateEdit').val().split('.');
-            dateSource[0] = dateSource.splice(2, 1, dateSource[0])[0];
+            dateSource[0]  = dateSource.splice(2, 1, dateSource[0])[0];
 
-            var newMove = new SingleMoveModel({
-                date: new Date(dateSource.join('/')).getTime(),
-                type: this.$el.find('.typeEdit').val(),
-                sum: parseInt(this.$el.find('.sumEdit').val(), 10) || 0,
-                comment: this.$el.find('.editMoveComment').val()
+            var newSaving = new SingleSavingModel({
+                date    : new Date(dateSource.join('/')).getTime(),
+                type    : this.$el.find('.typeEdit').val(),
+                currency: this.$el.find('.currencyEdit').val(),
+                sum     : parseInt(this.$el.find('.sumEdit').val(), 10) || 0,
+                comment : this.$el.find('.editSavingComment').val()
             });
 
-            window.app.multipleMovesCollection.add(newMove);
+            window.app.multipleSavingsCollection.add(newSaving);
 
-            newMove.save();
+            newSaving.save();
             this.trigger('closePopup');
         },
 
-        closeMoveAdd: function () {
+        closeSavingAdd: function () {
 
             this.unbind();
             this.remove();

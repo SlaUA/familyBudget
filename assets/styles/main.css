@@ -35,17 +35,20 @@ body.overlay-enabled {
 
 /* main screen */
 
-#movesApp {
+#mainWrapper {
     height: 100%;
 }
 
-.movesHeader {
+.movesHeader,
+.savingsHeader {
     display: flex;
     font-weight: bold;
     min-height: 40px;
+    margin: 10px 0 0;
 }
 
-.movesWholeWrapper {
+.movesWholeWrapper,
+.savingsWholeWrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -53,45 +56,53 @@ body.overlay-enabled {
     justify-content: flex-start;
 }
 
-.moveRow {
+.moveRow,
+.savingRow {
     display: flex;
     min-height: 40px;
 }
 
-.moveRow > div {
+.moveRow > div,
+.savingRow > div {
     border-left: 1px solid black;
     border-bottom: 1px solid black;
 }
 
-.moveRow > div:first-child {
+.moveRow > div:first-child,
+.savingRow > div:first-child {
     -webkit-border-radius: 5px 0 0 5px;
     -moz-border-radius: 5px 0 0 5px;
     border-radius: 5px 0 0 5px;
 }
 
-.moveRow > div:last-child {
+.moveRow > div:last-child,
+.savingRow > div:last-child {
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
 }
 
-.movesHeader > div {
+.movesHeader > div,
+.savingsHeader > div {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
 }
 
-.movesHeader > div:first-child {
+.movesHeader > div:first-child,
+.savingsHeader > div:first-child {
     -webkit-border-radius: 5px 0 0 5px;
     -moz-border-radius: 5px 0 0 5px;
     border-radius: 5px 0 0 5px;
 }
 
-.movesHeader > div:last-child {
+.movesHeader > div:last-child,
+.savingsHeader > div:last-child {
     border: 1px solid black;
 }
 
-.movesWrapper {
+.movesWrapper,
+.savingsWrapper {
     display: flex;
     flex: 1 1 auto;
     height: 0;
@@ -99,13 +110,20 @@ body.overlay-enabled {
     overflow-y: auto;
 }
 
-.moveRow > div, .movesHeader > div {
+.moveRow > div, .movesHeader > div,
+.savingRow > div, .savingsHeader > div {
     display: flex;
     align-items: center;
     align-self: stretch;
     text-align: center;
     word-wrap: break-word;
     justify-content: center;
+}
+
+.savingRow > div.commentColumn,
+.moveRow > div.commentColumn {
+    text-align: left;
+
 }
 
 .dateColumn {
@@ -122,13 +140,7 @@ body.overlay-enabled {
 
 .commentColumn {
     width: 37%;
-    /*noinspection CssInvalidPropertyValue*/
     word-break: break-word;
-}
-
-.moveRow > div.commentColumn {
-    text-align: left;
-
 }
 
 .removeColumn {
@@ -138,10 +150,12 @@ body.overlay-enabled {
     border-radius: 0 5px 5px 0;
 }
 
+.savingRow.incomeRow,
 .moveRow.incomeRow {
     background: rgba(0, 128, 0, 0.3);
 }
 
+.savingRow.expenseRow,
 .moveRow.expenseRow {
     background: rgba(255, 0, 0, 0.3);
 }
@@ -151,14 +165,14 @@ body.overlay-enabled {
     font-size: 16px;
 }
 
-.moveAddWrapper {
+.addNewWrapper {
     justify-content: center;
     flex-direction: column;
     display: flex;
     margin: 10px 0 0;
 }
 
-.moveAdd {
+.addNew {
     height: 35px;
     line-height: 35px;
     width: 200px;
@@ -171,7 +185,7 @@ body.overlay-enabled {
 }
 
 .dateFilterWrapper {
-    margin: 10px 0;
+    margin: 10px 0 0;
     display: flex;
     flex-direction: column;
     align-self: stretch;
@@ -268,8 +282,8 @@ body.overlay-enabled {
     background-size: contain;
 }
 
-/*!*edit move*!*/
-
+/*!*edit move, saving*!*/
+.editSavingView,
 .editMoveView {
     position: fixed;
     width: 300px;
@@ -285,10 +299,16 @@ body.overlay-enabled {
     border-radius: 5px;
 }
 
+.editSavingView {
+    height: 345px;
+    margin-top: -173px;
+}
+
+.editSavingView > *,
 .editMoveView > * {
     width: 270px;
     display: block;
-    margin: 10px auto 0;
+    margin: 10px auto;
     padding: 0;
     outline: 1px solid bisque;
     box-sizing: border-box;
@@ -297,17 +317,20 @@ body.overlay-enabled {
     font-size: 20px;
 }
 
-.editMoveView .editMoveComment {
+.editSavingComment,
+.editMoveComment {
     height: 100px;
     overflow: auto;
 }
 
+.editSavingView .bottomButtonsWrapper,
 .editMoveView .bottomButtonsWrapper {
     line-height: 35px;
     text-align: center;
     outline: 0;
 }
 
+.editSavingView .bottomButtons,
 .editMoveView .bottomButtons {
     display: inline-block;
     width: 45%;
@@ -321,12 +344,12 @@ body.overlay-enabled {
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-.acceptMoveChanges.bottomButtons {
+.acceptChanges.bottomButtons {
     background: green;
     float: left;
 }
 
-.rejectMoveChanges.bottomButtons {
+.rejectChanges.bottomButtons {
     background: orangered;
     float: right;
 }
@@ -340,10 +363,16 @@ body.overlay-enabled {
     margin-left: 5px;
 }
 
+.savingsMonthTotal .totalColumnName {
+    width: 100px;
+}
+
+.savingsMonthTotal,
 .movesMonthTotal {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    border-top: 1px solid black;
 }
 
 .incomeSum {

@@ -17,8 +17,8 @@ define([
         template: _.template(moveEditTemplate),
 
         events: {
-            'click .acceptMoveChanges': 'onUpdateChanges',
-            'click .rejectMoveChanges': 'closeMoveEdit'
+            'click .acceptChanges': 'onUpdateChanges',
+            'click .rejectChanges': 'closeMoveEdit'
         },
 
         customEventsMap: {

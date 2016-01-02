@@ -1,0 +1,37 @@
+<input class="dateEdit" type="text"
+       value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
+
+<select class="typeEdit">
+    <option value="expense"
+    <% if (type==='expense') { %> selected <% } %>>
+    Расход
+    </option>
+    <option value="income"
+    <% if (type==='income') { %> selected <% } %>>
+    Доход
+    </option>
+</select>
+
+<input class="sumEdit" value="<%= sum %>">
+
+<select class="currencyEdit">
+    <option value="USD"
+    <% if (currency==='USD') { %> selected <% } %>>
+    USD
+    </option>
+    <option value="EUR"
+    <% if (currency==='EUR') { %> selected <% } %>>
+    EUR
+    </option>
+    <option value="UAH"
+    <% if (currency==='UAH') { %> selected <% } %>>
+    UAH
+    </option>
+</select>
+
+<textarea class="editMoveComment"><%= comment %></textarea>
+
+<div class="bottomButtonsWrapper">
+    <div class="acceptChanges bottomButtons">OK:)</div>
+    <div class="rejectChanges bottomButtons">Отмена</div>
+</div>

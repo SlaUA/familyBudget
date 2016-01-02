@@ -16,12 +16,12 @@ define([
         collection: null,
         dateFilterTemplate: _.template(dateFilterTemplate),
 
-        $movesBody: null,
-        $incomeSum: null,
-        $expenseSum: null,
-        $totalSum: null,
+        $movesBody  : null,
+        $totalSumUAH: null,
+        $totalSumUSD: null,
+        $totalSum   : null,
         $monthFilter: null,
-        $yearFilter: null,
+        $yearFilter : null,
 
         events: {
             'change': 'render'
@@ -29,10 +29,10 @@ define([
 
         initialize: function () {
 
-            this.$movesBody  = this.$el.find('.moves');
-            this.$incomeSum  = this.$el.find('.incomeSum');
-            this.$expenseSum = this.$el.find('.expenseSum');
-            this.$totalSum   = this.$el.find('.totalSum');
+            this.$movesBody   = this.$el.find('.moves');
+            this.$totalSumUAH = this.$el.find('.incomeSum');
+            this.$totalSumUSD = this.$el.find('.expenseSum');
+            this.$totalSum    = this.$el.find('.totalSum');
 
             this.collection.bind('add', this.render, this);
             this.collection.bind('change', this.render, this);
@@ -84,8 +84,8 @@ define([
                     }).el);
             }, this);
 
-            this.$incomeSum.text(totalIncomeSum);
-            this.$expenseSum.text(totalExpenseSum);
+            this.$totalSumUAH.text(totalIncomeSum);
+            this.$totalSumUSD.text(totalExpenseSum);
             this.$totalSum.text(totalIncomeSum - totalExpenseSum);
         }
     });

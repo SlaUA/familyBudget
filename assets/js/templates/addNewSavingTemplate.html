@@ -1,0 +1,22 @@
+<input class="dateEdit" type="text"
+       value="<%=new Date().getDate()%>.<%=new Date().getMonth()+1%>.<%= new Date().getFullYear()%>">
+
+<select class="typeEdit">
+    <option value="expense"> Расход</option>
+    <option value="income">Доход</option>
+</select>
+
+<input class="sumEdit" placeholder="Сумма">
+
+<select class="currencyEdit">
+    <option value="USD">USD</option>
+    <option value="EUR">EUR</option>
+    <option value="UAH">UAH</option>
+</select>
+
+<textarea class="editSavingComment"></textarea>
+
+<div class="bottomButtonsWrapper">
+    <div class="acceptChanges bottomButtons">OK:)</div>
+    <div class="rejectChanges bottomButtons">Отмена</div>
+</div>

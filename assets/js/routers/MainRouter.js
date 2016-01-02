@@ -1,16 +1,18 @@
 define([
     'underscore',
     'backbone',
-    'MainMovesView'
+    'MainMovesView',
+    'MainSavingsView'
 ], function (_,
              Backbone,
-             MainMovesView) {
+             MainMovesView,
+             MainSavingsView) {
 
     return Backbone.Router.extend({
 
         routes: {
-            'home': 'home',
-            'savings': 'savings',
+            'moves'    : 'moves',
+            'savings'  : 'savings',
             '*notFound': 'notFound'
         },
 
@@ -22,9 +24,10 @@ define([
         savings: function () {
 
             window.app.trigger('disposeAllViews');
+            new MainSavingsView();
         },
 
-        home: function () {
+        moves: function () {
 
             window.app.trigger('disposeAllViews');
             new MainMovesView();
@@ -33,7 +36,7 @@ define([
         notFound: function () {
 
             window.app.trigger('disposeAllViews');
-            this.navigate('home', {trigger: true});
+            this.navigate('moves', {trigger: true});
         }
     });
 });

@@ -1,0 +1,17 @@
+<div class="dateColumn">
+    <%= new Date(date).getDate() %>.<%= new Date(date).getMonth()+1 %>.<%= new Date(date).getFullYear() %>
+</div>
+
+<div class="typeColumn">
+    <%= type === 'income' ? '+' : '-' %>
+</div>
+
+<div class="sumColumn">
+    <%= sum %>
+</div>
+
+<div class="commentColumn">
+    <%= comment %>
+</div>
+
+<div class="removeColumn">&#215;</div>
