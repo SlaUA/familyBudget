@@ -18,22 +18,22 @@
     <icon src="assets/images/icon48.png" width="48" height="48"/>
     <icon src="assets/images/icon36.png" width="36" height="36"/>
 
-    <splash src="assets/images/splashes/splash-hdpi-port" />
-    <splash src="assets/images/splashes/splash-ldpi-port" qualifier="port-ldpi"/>
-    <splash src="assets/images/splashes/splash-ldpi-land" qualifier="land-ldpi"/>
+    <splash src="assets/images/splashes/splash-hdpi-port" platform="android"/>
+    <splash src="assets/images/splashes/splash-ldpi-port" qualifier="port-ldpi" platform="android"/>
+    <splash src="assets/images/splashes/splash-ldpi-land" qualifier="land-ldpi" platform="android"/>
 
-    <splash src="assets/images/splashes/splash-mdpi-port" qualifier="port-mdpi"/>
-    <splash src="assets/images/splashes/splash-mdpi-land" qualifier="land-mdpi"/>
+    <splash src="assets/images/splashes/splash-mdpi-port" qualifier="port-mdpi" platform="android"/>
+    <splash src="assets/images/splashes/splash-mdpi-land" qualifier="land-mdpi" platform="android"/>
 
-    <splash src="assets/images/splashes/splash-hdpi-port" qualifier="port-hdpi"/>
-    <splash src="assets/images/splashes/splash-hdpi-land" qualifier="land-hdpi"/>
+    <splash src="assets/images/splashes/splash-hdpi-port" qualifier="port-hdpi" platform="android"/>
+    <splash src="assets/images/splashes/splash-hdpi-land" qualifier="land-hdpi" platform="android"/>
 
-    <splash src="assets/images/splashes/splash-xhdpi-port" qualifier="port-xhdpi"/>
-    <splash src="assets/images/splashes/splash-xhdpi-land" qualifier="land-xhdpi"/>
+    <splash src="assets/images/splashes/splash-xhdpi-port" qualifier="port-xhdpi" platform="android"/>
+    <splash src="assets/images/splashes/splash-xhdpi-land" qualifier="land-xhdpi" platform="android"/>
 
-    <splash src="assets/images/splashes/splash-xxhdpi-port" qualifier="port-xxhdpi"/>
-    <splash src="assets/images/splashes/splash-xxhdpi-land" qualifier="land-xxhdpi"/>
+    <splash src="assets/images/splashes/splash-xxhdpi-port" qualifier="port-xxhdpi" platform="android"/>
+    <splash src="assets/images/splashes/splash-xxhdpi-land" qualifier="land-xxhdpi" platform="android"/>
 
-    <splash src="assets/images/splashes/splash-xxxhdpi-port" qualifier="port-xxxhdpi"/>
-    <splash src="assets/images/splashes/splash-xxxhdpi-land" qualifier="land-xxxhdpi"/>
+    <splash src="assets/images/splashes/splash-xxxhdpi-port" qualifier="port-xxxhdpi" platform="android"/>
+    <splash src="assets/images/splashes/splash-xxxhdpi-land" qualifier="land-xxxhdpi" platform="android"/>
 </widget>
