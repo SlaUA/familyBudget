@@ -18,7 +18,7 @@ define([
 
     return Backbone.View.extend({
 
-        el: '#mainWrapper',
+        el   : '#mainWrapper',
         $body: jQuery('body'),
 
         events: {
@@ -27,7 +27,6 @@ define([
 
         initialize: function () {
 
-            this.$body.removeAttr('class');
             this.$el.append(mainMovesTemplate);
 
             // remove click lag on mobile devices
@@ -35,18 +34,22 @@ define([
 
             window.app.multipleMovesCollection = new MultipleMovesCollection();
             window.app.multipleMovesCollection.fetch()
-                .done(function () {
 
-                    new MultipleMovesView({
-                        collection: app.multipleMovesCollection
-                    });
-                })
-                .fail(function () {
+                  .done(function () {
 
-                    alert('Данные не загрузились, попробуйте позже');
-                });
+                      window.app.trigger('pageChangeEnd');
+                      window.app.trigger('addNewView', this);
 
-            window.app.trigger('addNewView', this);
+                      new MultipleMovesView({
+                          collection: app.multipleMovesCollection
+                      });
+                  }.bind(this))
+
+                  .fail(function () {
+
+                      alert('Данные не загрузились, попробуйте позже');
+                      location.reload();
+                  })
         },
 
         createNewMovePopup: function () {

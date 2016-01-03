@@ -2,11 +2,13 @@ define([
     'underscore',
     'backbone',
     'MainMovesView',
-    'MainSavingsView'
+    'MainSavingsView',
+    'WaitSpinnerView'
 ], function (_,
              Backbone,
              MainMovesView,
-             MainSavingsView) {
+             MainSavingsView,
+             WaitSpinnerView) {
 
     return Backbone.Router.extend({
 
@@ -18,24 +20,29 @@ define([
 
         initialize: function () {
 
+            new WaitSpinnerView();
             Backbone.history.start();
         },
 
-        savings: function () {
+        beforePageChange: function () {
 
             window.app.trigger('disposeAllViews');
+            window.app.trigger('pageChangeStart');
+        },
+
+
+        savings: function () {
+
             new MainSavingsView();
         },
 
         moves: function () {
 
-            window.app.trigger('disposeAllViews');
             new MainMovesView();
         },
 
         notFound: function () {
 
-            window.app.trigger('disposeAllViews');
             this.navigate('moves', {trigger: true});
         }
     });

@@ -30,18 +30,22 @@ define([
 
             window.app.multipleSavingsCollection = new multipleSavingsCollection();
             window.app.multipleSavingsCollection.fetch()
+
                   .done(function () {
+
+                      window.app.trigger('pageChangeEnd');
+                      window.app.trigger('addNewView', this);
 
                       new MultipleSavingsView({
                           collection: app.multipleSavingsCollection
                       });
-                  })
+                  }.bind(this))
+
                   .fail(function () {
 
                       alert('Данные не загрузились, попробуйте позже');
+                      location.reload();
                   });
-
-            window.app.trigger('addNewView', this);
         },
 
         createNewSavingPopup: function () {

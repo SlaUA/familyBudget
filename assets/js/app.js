@@ -23,7 +23,8 @@ require.config({
         SingleSavingEditView     : 'views/SingleSavingEditView',
         SingleSavingAddView      : 'views/SingleSavingAddView',
         SingleSavingView         : 'views/SingleSavingView',
-        MultipleSavingsView      : 'views/MultipleSavingsView'
+        MultipleSavingsView      : 'views/MultipleSavingsView',
+        WaitSpinnerView          : 'views/WaitSpinnerView'
     }
 });
 
