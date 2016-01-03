@@ -18,6 +18,7 @@
     <icon src="assets/images/icon48.png" width="48" height="48"/>
     <icon src="assets/images/icon36.png" width="36" height="36"/>
 
+    <splash src="assets/images/splashes/splash-hdpi-port" />
     <splash src="assets/images/splashes/splash-ldpi-port" qualifier="port-ldpi"/>
     <splash src="assets/images/splashes/splash-ldpi-land" qualifier="land-ldpi"/>
 
