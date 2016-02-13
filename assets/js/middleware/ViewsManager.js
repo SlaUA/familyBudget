@@ -34,7 +34,6 @@ define([
                 var length = this.viewsInitiated.length;
 
                 while (length) {
-
                     this.viewsInitiated[length - 1].close();
                     this.viewsInitiated.pop();
                     length--;

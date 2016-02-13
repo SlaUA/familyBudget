@@ -48,7 +48,6 @@ define([
                   .fail(function () {
 
                       alert('Данные не загрузились, попробуйте позже');
-                      location.reload();
                   })
         },
 

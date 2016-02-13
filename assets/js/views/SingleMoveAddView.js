@@ -12,15 +12,15 @@ define([
 
     return Backbone.View.extend({
 
-        tagName: 'div',
+        tagName  : 'div',
         className: 'editMoveView',
-        $body: jQuery('body'),
+        $body    : jQuery('body'),
 
         template: _.template(addNewMoveTemplate),
 
         events: {
             'click .acceptChanges': 'addNewMove',
-            'click .rejectChanges': 'closeMoveAdd'
+            'click .rejectChanges': 'close'
         },
 
         initialize: function () {
@@ -32,7 +32,7 @@ define([
         },
 
         customEventsMap: {
-            closePopup: 'closeMoveAdd'
+            closePopup: 'close'
         },
 
         subscribeForCustomEvents: function () {
@@ -49,12 +49,12 @@ define([
 
             // change date from existing format (dd.mm.yyyy) to yyyy/mm/dd
             var dateSource = this.$el.find('.dateEdit').val().split('.');
-            dateSource[0] = dateSource.splice(2, 1, dateSource[0])[0];
+            dateSource[0]  = dateSource.splice(2, 1, dateSource[0])[0];
 
             var newMove = new SingleMoveModel({
-                date: new Date(dateSource.join('/')).getTime(),
-                type: this.$el.find('.typeEdit').val(),
-                sum: parseInt(this.$el.find('.sumEdit').val(), 10) || 0,
+                date   : new Date(dateSource.join('/')).getTime(),
+                type   : this.$el.find('.typeEdit').val(),
+                sum    : parseInt(this.$el.find('.sumEdit').val(), 10) || 0,
                 comment: this.$el.find('.editMoveComment').val()
             });
 
@@ -64,13 +64,12 @@ define([
             this.trigger('closePopup');
         },
 
-        closeMoveAdd: function () {
+        close: function () {
 
             this.unbind();
             this.remove();
             this.$body.removeClass('overlay-enabled');
         },
-
 
         render: function () {
 

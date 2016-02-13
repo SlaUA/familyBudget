@@ -18,11 +18,11 @@ define([
 
         events: {
             'click .acceptChanges': 'onUpdateChanges',
-            'click .rejectChanges': 'closeSavingEdit'
+            'click .rejectChanges': 'close'
         },
 
         customEventsMap: {
-            closePopup: 'closeSavingEdit'
+            closePopup: 'close'
         },
 
         initialize: function () {
@@ -63,7 +63,7 @@ define([
             this.trigger('closePopup');
         },
 
-        closeSavingEdit: function () {
+        close: function () {
 
             this.unbind();
             this.remove();

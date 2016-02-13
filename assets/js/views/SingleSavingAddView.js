@@ -20,7 +20,7 @@ define([
 
         events: {
             'click .acceptChanges': 'addNewSaving',
-            'click .rejectChanges': 'closeSavingAdd'
+            'click .rejectChanges': 'close'
         },
 
         initialize: function () {
@@ -32,7 +32,7 @@ define([
         },
 
         customEventsMap: {
-            closePopup: 'closeSavingAdd'
+            closePopup: 'close'
         },
 
         subscribeForCustomEvents: function () {
@@ -65,7 +65,7 @@ define([
             this.trigger('closePopup');
         },
 
-        closeSavingAdd: function () {
+        close: function () {
 
             this.unbind();
             this.remove();

@@ -15,6 +15,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     min-width: 300px;
     height: 100%;
+    line-height: 1;
 }
 
 body.spinner-overlay:after,
@@ -120,6 +121,7 @@ body.overlay-enabled {
     text-align: center;
     word-wrap: break-word;
     justify-content: center;
+    box-sizing: content-box;
 }
 
 .savingRow > div.commentColumn,
@@ -147,7 +149,6 @@ body.overlay-enabled {
 .savingsHeader .currencyColumn {
     -webkit-writing-mode: vertical-rl;
     writing-mode: tb-rl;
-    text-rendering: optimizeSpeed;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -164,6 +165,7 @@ body.overlay-enabled {
     width: 37%;
     word-break: break-word;
     padding: 0 5px;
+    cursor: text;
 }
 
 .savingsWrapper .commentColumn,
@@ -178,6 +180,7 @@ body.overlay-enabled {
     border-radius: 0 5px 5px 0;
     background: url(../images/delete.png) no-repeat center;
     background-size: contain;
+    cursor: pointer;
 }
 
 .savingRow.incomeRow,
@@ -212,6 +215,7 @@ body.overlay-enabled {
     text-align: center;
     color: #FFF;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .dateFilterWrapper {
@@ -253,7 +257,7 @@ body.overlay-enabled {
 .dateFilter select {
     -webkit-appearance: none;
     border: 0;
-    min-width: 75px;
+    min-width: 90px;
     height: 30px;
     line-height: 30px;
     outline: 1px solid black;
@@ -298,6 +302,11 @@ body.overlay-enabled {
     margin: 0 auto;
     width: 80%;
     font-size: 20px;
+}
+
+a.routeLink:hover {
+    text-decoration: none;
+    color: ghostwhite;
 }
 
 /* edit move, saving */
@@ -358,6 +367,7 @@ body.overlay-enabled {
     -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .acceptChanges.bottomButtons {
