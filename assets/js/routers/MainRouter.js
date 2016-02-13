@@ -26,10 +26,11 @@ define([
 
         beforePageChange: function () {
 
-            window.app.trigger('disposeAllViews');
-            window.app.trigger('pageChangeStart');
+            if (!window.app.inLockedState) {
+                window.app.trigger('disposeAllViews');
+                window.app.trigger('pageChangeStart');
+            }
         },
-
 
         savings: function () {
 

@@ -28,7 +28,7 @@ define([
         initialize: function () {
 
             window.app.trigger('addNewView', this, true);
-
+            window.app.inLockedState = true;
             this.listenTo(this.model, 'change', this.render);
             this.subscribeForCustomEvents();
             this.render();
@@ -55,7 +55,7 @@ define([
                 type    : this.$el.find('.typeEdit').val(),
                 currency: this.$el.find('.currencyEdit').val(),
                 sum     : parseInt(this.$el.find('.sumEdit').val(), 10),
-                comment : this.$el.find('.editMoveComment').val()
+                comment : this.$el.find('.editSavingComment').val()
             });
 
             this.model.save();
@@ -65,6 +65,7 @@ define([
 
         close: function () {
 
+            window.app.inLockedState = false;
             this.unbind();
             this.remove();
             this.$body.removeClass('overlay-enabled');
