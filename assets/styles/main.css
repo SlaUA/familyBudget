@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-size: 18px;
+    font-size: 17px;
     font-family: 'Times New Roman', times, serif;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
@@ -296,7 +296,8 @@ body.overlay-enabled {
     max-width: 320px;
     min-width: 180px;
     margin: 0 auto;
-    width: 50%;
+    width: 80%;
+    font-size: 20px;
 }
 
 /* edit move, saving */
