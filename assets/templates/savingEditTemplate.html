@@ -1,7 +1,7 @@
-<input class="dateEdit" type="text"
+<input class="form-control dateEdit" type="text"
        value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
 
-<select class="typeEdit">
+<select class="form-control typeEdit">
     <option value="expense"
     <% if (type==='expense') { %> selected <% } %>>
     Расход
@@ -12,9 +12,9 @@
     </option>
 </select>
 
-<input class="sumEdit" value="<%= sum %>">
+<input class="form-control sumEdit" value="<%= sum %>">
 
-<select class="currencyEdit">
+<select class="form-control currencyEdit">
     <option value="USD"
     <% if (currency==='USD') { %> selected <% } %>>
     USD
@@ -29,7 +29,7 @@
     </option>
 </select>
 
-<textarea class="editMoveComment"><%= comment %></textarea>
+<textarea class="form-control editSavingComment"><%= comment %></textarea>
 
 <div class="bottomButtonsWrapper">
     <div class="acceptChanges bottomButtons">OK:)</div>

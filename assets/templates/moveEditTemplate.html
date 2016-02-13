@@ -1,14 +1,14 @@
-<input class="dateEdit" type="text"
+<input class="form-control dateEdit" type="text"
        value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
 
-<select class="typeEdit">
+<select class="form-control typeEdit">
     <option value="expense" <% if (type==='expense') { %> selected <% } %>>Расход</option>
     <option value="income" <% if (type==='income') { %> selected <% } %>>Доход</option>
 </select>
 
-<input class="sumEdit" value="<%= sum %>">
+<input class="form-control sumEdit" value="<%= sum %>">
 
-<textarea class="editMoveComment"><%= comment %></textarea>
+<textarea class="form-control editMoveComment"><%= comment %></textarea>
 
 <div class="bottomButtonsWrapper">
     <div class="acceptChanges bottomButtons">OK:)</div>

@@ -1,20 +1,20 @@
-<input class="dateEdit" type="text"
+<input class="form-control dateEdit" type="text"
        value="<%=new Date().getDate()%>.<%=new Date().getMonth()+1%>.<%= new Date().getFullYear()%>">
 
-<select class="typeEdit">
+<select class="form-control typeEdit">
     <option value="expense"> Расход</option>
     <option value="income">Доход</option>
 </select>
 
-<input class="sumEdit" placeholder="Сумма">
+<input class="form-control sumEdit" placeholder="Сумма">
 
-<select class="currencyEdit">
+<select class="form-control currencyEdit">
     <option value="USD">USD</option>
     <option value="EUR">EUR</option>
     <option value="UAH">UAH</option>
 </select>
 
-<textarea class="editSavingComment"></textarea>
+<textarea class="form-control editSavingComment"></textarea>
 
 <div class="bottomButtonsWrapper">
     <div class="acceptChanges bottomButtons">OK:)</div>

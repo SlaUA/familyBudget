@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Times New Roman', times, serif;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
@@ -163,6 +163,7 @@ body.overlay-enabled {
 .commentColumn {
     width: 37%;
     word-break: break-word;
+    padding: 0 5px;
 }
 
 .savingsWrapper .commentColumn,
@@ -175,16 +176,18 @@ body.overlay-enabled {
     -webkit-border-radius: 0 5px 5px 0;
     -moz-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
+    background: url(../images/delete.png) no-repeat center;
+    background-size: contain;
 }
 
 .savingRow.incomeRow,
 .moveRow.incomeRow {
-    background: rgba(0, 128, 0, 0.3);
+    background: rgba(0, 128, 0, 0.1);
 }
 
 .savingRow.expenseRow,
 .moveRow.expenseRow {
-    background: rgba(255, 0, 0, 0.3);
+    background: rgba(255, 0, 0, 0.1);
 }
 
 .movesHeaders .removeColumn, .movesHeaders .editColumn {
@@ -285,42 +288,26 @@ body.overlay-enabled {
     border-radius: 5px;
     color: ghostwhite;
     text-decoration: none;
-    height: 20px;
-    line-height: 20px;
+    height: 30px;
+    line-height: 30px;
     display: block;
-    padding: 5px 10px;
     position: relative;
     text-align: center;
+    max-width: 320px;
+    min-width: 180px;
+    margin: 0 auto;
+    width: 50%;
 }
 
-.routeLink:before {
-    content: '';
-    width: 15%;
-    right: initial;
-    transform: none;
-    left: 0;
-    top: 0;
-    position: absolute;
-    height: 30px;
-    background: url(../images/leftAnimation.gif);
-    background-size: contain;
-}
-
-.savingsWholeWrapper .routeLink:before {
-    left: initial;
-    right: 0;
-    transform: rotate(180DEG);
-}
-
-/*!*edit move, saving*!*/
+/* edit move, saving */
 .editSavingView,
 .editMoveView {
     position: fixed;
     width: 300px;
-    height: 300px;
+    height: 320px;
     top: 50%;
     left: 50%;
-    margin-top: -150px;
+    margin-top: -160px;
     margin-left: -150px;
     z-index: 2;
     background: snow;
@@ -329,18 +316,12 @@ body.overlay-enabled {
     border-radius: 5px;
 }
 
-.editSavingView {
-    height: 345px;
-    margin-top: -173px;
-}
-
 .editSavingView > *,
 .editMoveView > * {
     width: 270px;
     display: block;
     margin: 10px auto;
     padding: 0;
-    outline: 1px solid bisque;
     box-sizing: border-box;
     text-align: left;
     height: 35px;
@@ -349,8 +330,12 @@ body.overlay-enabled {
 
 .editSavingComment,
 .editMoveComment {
-    height: 100px;
+    height: 75px !important;
     overflow: auto;
+}
+
+.editMoveComment {
+    height: 120px !important;
 }
 
 .editSavingView .bottomButtonsWrapper,
@@ -399,7 +384,7 @@ body.overlay-enabled {
 
 .savingsMonthTotal,
 .movesMonthTotal {
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     border-top: 1px solid black;
