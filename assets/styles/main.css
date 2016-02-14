@@ -31,8 +31,7 @@ body.overlay-enabled:after {
     overflow: auto;
 }
 
-body.spinner-overlay,
-body.overlay-enabled {
+body.spinner-overlay{
     overflow: hidden;
 }
 
@@ -312,7 +311,7 @@ a.routeLink:hover {
 /* edit move, saving */
 .editSavingView,
 .editMoveView {
-    position: fixed;
+    position: absolute;
     width: 300px;
     height: 320px;
     top: 50%;

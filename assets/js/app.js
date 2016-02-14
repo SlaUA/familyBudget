@@ -44,9 +44,7 @@ define([
 
     jQuery(function () {
 
-        window.app = {
-            inLockedState: false
-        };
+        window.app = {};
         // remove click lag on mobile devices
         fastclick.attach(document.body);
 

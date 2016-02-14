@@ -26,8 +26,6 @@ define([
         initialize: function () {
 
             window.app.trigger('addNewView', this, true);
-
-            window.app.inLockedState = true;
             this.subscribeForCustomEvents();
             this.render();
         },
@@ -67,10 +65,9 @@ define([
 
         close: function () {
 
-            window.app.inLockedState = false;
+            this.$body.removeClass('overlay-enabled');
             this.unbind();
             this.remove();
-            this.$body.removeClass('overlay-enabled');
         },
 
         render: function () {
