@@ -31,8 +31,12 @@ body.overlay-enabled:after {
     overflow: auto;
 }
 
-body.spinner-overlay{
+body.spinner-overlay {
     overflow: hidden;
+}
+
+body.overlay-enabled {
+    height: 130%;
 }
 
 /* main screen */
