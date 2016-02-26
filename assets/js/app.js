@@ -8,6 +8,7 @@ require.config({
         text                     : 'static/text',
         backboneLocalStorage     : 'static/backboneLocalStorage',
         fastclick                : 'static/fastclick',
+        highcharts               : 'static/highcharts',
         MainRouter               : 'routers/MainRouter',
         ViewsManager             : 'middleware/ViewsManager',
         MultipleMovesCollection  : 'collections/MultipleMovesCollection',
@@ -24,7 +25,14 @@ require.config({
         SingleSavingAddView      : 'views/SingleSavingAddView',
         SingleSavingView         : 'views/SingleSavingView',
         MultipleSavingsView      : 'views/MultipleSavingsView',
-        WaitSpinnerView          : 'views/WaitSpinnerView'
+        WaitSpinnerView          : 'views/WaitSpinnerView',
+        MainMoveChartView        : 'views/MainMoveChartView'
+    },
+    shim         : {
+        highcharts: {
+            exports: "Highcharts",
+            deps   : ["jquery"]
+        }
     }
 });
 

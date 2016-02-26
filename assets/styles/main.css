@@ -400,8 +400,12 @@ a.routeLink:hover {
 .movesMonthTotal {
     padding: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border-top: 1px solid black;
+}
+
+.savingsMonthTotal {
+    flex-direction: column;
 }
 
 .incomeSum {
@@ -410,6 +414,36 @@ a.routeLink:hover {
 
 .expenseSum {
     color: red;
+}
+
+.totalInfo {
+    width: 70%;
+}
+
+.monthMovesInfoWrapper {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    background-image: -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            color-stop(0, #5EB8FA),
+            color-stop(1, #004169)
+    );
+    background-image: -o-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: -moz-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: -webkit-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: -ms-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: linear-gradient(to bottom, #5EB8FA 0%, #004169 100%);
+    border-radius: 5px;
+}
+
+.monthMovesInfoWrapper > a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
 }
 
 /*end total sums*/
@@ -992,3 +1026,15 @@ a.routeLink:hover {
 }
 
 /*spinner end*/
+
+/* moves charts */
+
+.yearFilterWrapper {
+    text-align: center;
+}
+
+.movesChartWrapper {
+    padding-top: 30px;
+}
+
+/* moves charts end */
