@@ -3,19 +3,22 @@ define([
     'backbone',
     'MainMovesView',
     'MainSavingsView',
-    'WaitSpinnerView'
+    'WaitSpinnerView',
+    'MainMoveChartView'
 ], function (_,
              Backbone,
              MainMovesView,
              MainSavingsView,
-             WaitSpinnerView) {
+             WaitSpinnerView,
+             MainMoveChartView) {
 
     return Backbone.Router.extend({
 
         routes: {
-            'moves'    : 'moves',
-            'savings'  : 'savings',
-            '*notFound': 'notFound'
+            'moves'         : 'moves',
+            'savings'       : 'savings',
+            'monthMovesInfo': 'monthMovesInfo',
+            '*notFound'     : 'notFound'
         },
 
         initialize: function () {
@@ -26,8 +29,8 @@ define([
 
         beforePageChange: function () {
 
-                window.app.trigger('disposeAllViews');
-                window.app.trigger('pageChangeStart');
+            window.app.trigger('disposeAllViews');
+            window.app.trigger('pageChangeStart');
         },
 
         savings: function () {
@@ -38,6 +41,11 @@ define([
         moves: function () {
 
             new MainMovesView();
+        },
+
+        monthMovesInfo: function () {
+
+            new MainMoveChartView();
         },
 
         notFound: function () {

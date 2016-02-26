@@ -25,7 +25,8 @@ require.config({
         SingleSavingAddView      : 'views/SingleSavingAddView',
         SingleSavingView         : 'views/SingleSavingView',
         MultipleSavingsView      : 'views/MultipleSavingsView',
-        WaitSpinnerView          : 'views/WaitSpinnerView'
+        WaitSpinnerView          : 'views/WaitSpinnerView',
+        MainMoveChartView        : 'views/MainMoveChartView'
     },
     shim         : {
         highcharts: {

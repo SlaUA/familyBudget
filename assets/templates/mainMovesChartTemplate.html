@@ -1,0 +1,20 @@
+<div class="movesChartWrapper">
+    <div class="yearFilterWrapper">
+        <div class="dateFilter">
+            <label for="yearFilter">Год</label>
+            <div class="yearSelectWrapper">
+                <select name="yearSelect" id="yearFilter">
+                    <% for(var i = currentYear-5; i < currentYear+5; i++){%>
+
+                    <%if (currentYear === i) {%>
+                    <option selected value="<%= i %>"><%= i %></option>
+                    <%}else{%>
+                    <option value="<%= i %>"><%= i %></option>
+                    <%}%>
+                    <%}%>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="movesChart"></div>
+</div>

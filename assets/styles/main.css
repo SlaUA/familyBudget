@@ -404,7 +404,7 @@ a.routeLink:hover {
     border-top: 1px solid black;
 }
 
-.savingsMonthTotal{
+.savingsMonthTotal {
     flex-direction: column;
 }
 
@@ -423,7 +423,7 @@ a.routeLink:hover {
 .monthMovesInfoWrapper {
     width: 30%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     background-image: -webkit-gradient(
             linear,
             left top,
@@ -431,12 +431,11 @@ a.routeLink:hover {
             color-stop(0, #5EB8FA),
             color-stop(1, #004169)
     );
-    background-image: -o-linear-gradient(bottom,#5EB8FA 0%, #004169 100%);
-    background-image: -moz-linear-gradient(bottom,#5EB8FA 0%, #004169 100%);
-    background-image: -webkit-linear-gradient(bottom,#5EB8FA 0%, #004169 100%);
-    background-image: -ms-linear-gradient(bottom,#5EB8FA 0%, #004169 100%);
-    background-image: linear-gradient(to bottom,#5EB8FA 0%, #004169 100%);
-    padding-left: 10px;
+    background-image: -o-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: -moz-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: -webkit-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: -ms-linear-gradient(bottom, #5EB8FA 0%, #004169 100%);
+    background-image: linear-gradient(to bottom, #5EB8FA 0%, #004169 100%);
     border-radius: 5px;
 }
 
@@ -1027,3 +1026,15 @@ a.routeLink:hover {
 }
 
 /*spinner end*/
+
+/* moves charts */
+
+.yearFilterWrapper {
+    text-align: center;
+}
+
+.movesChartWrapper {
+    padding-top: 30px;
+}
+
+/* moves charts end */
