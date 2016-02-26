@@ -19,9 +19,11 @@ define([
 
         collection: null,
 
-        initialize: function () {
+        events: {
+            'change #yearFilter': 'render'
+        },
 
-            this.currentYear = new Date().getFullYear();
+        initialize: function () {
 
             if (!(window.app && window.app.multipleMovesCollection)) {
                 return location.hash = '#moves';
@@ -29,7 +31,7 @@ define([
 
             this.$el.append(
                 this.template({
-                    currentYear: this.currentYear
+                    currentYear: new Date().getFullYear()
                 })
             );
             this.collection  = window.app.multipleMovesCollection;
@@ -39,66 +41,81 @@ define([
         },
 
         /**
-         * @returns array {Array}, array of moves for the selected year
+         * @returns {Array}, array of moves for the selected year
          */
         getMovesDataForTheYear: function () {
 
-            var movesForTheYear = [
-                {
-                    _alias: 'income',
-                    name  : 'Доходы',
-                    data  : []
-                },
-                {
-                    _alias: 'expense',
-                    name  : 'Расходы',
-                    data  : []
-                }
-            ];
+            var result          = [];
+            var movesForTheYear = {
+                'income' : [0,0,0,0,0,0,0,0,0,0,0,0],
+                'expense': [0,0,0,0,0,0,0,0,0,0,0,0]
+            };
 
+            this.currentYear = parseInt(this.$yearSelect.val());
 
             this.collection.each(function (move) {
-                if (new Date(move.date).getFullYear() !== this.currentYear) {
+
+                var dateOfMove = new Date(move.attributes.date);
+
+                if (dateOfMove.getFullYear() !== this.currentYear) {
                     return false;
                 }
-                //move.attributes.type
-            });
+
+                movesForTheYear[move.attributes.type][dateOfMove.getMonth()] += move.attributes.sum;
+
+            }.bind(this));
+
+            for (var type in movesForTheYear) {
+
+                if (!(movesForTheYear.hasOwnProperty(type))) {
+                    continue;
+                }
+
+                result.push({
+                    name: type === 'income' ? 'Доходы' : 'Расходы',
+                    data: movesForTheYear[type]
+                });
+            }
+
+            return result;
         },
 
         render: function () {
 
             var moves = this.getMovesDataForTheYear.call(this);
 
-            this.$el.find('#movesChart').highcharts({
-                chart : {
-                    type: 'line'
-                },
-                title : {
-                    text: 'Доходы и затраты'
-                },
-                xAxis : {
-                    categories: [
-                        'Январь',
-                        'Февраль',
-                        'Март',
-                        'Апрель',
-                        'Май',
-                        'Июнь',
-                        'Июль',
-                        'Август',
-                        'Сентябрь',
-                        'Октябрь',
-                        'Ноябрь',
-                        'Декабрь'
-                    ]
-                },
-                yAxis : {
-                    title: {
-                        text: 'гривны'
-                    }
-                },
-                series: moves
-            });
+            this.$el.find('#movesChart')
+                .highcharts({
+                    chart : {
+                        type: 'line'
+                    },
+                    title : {
+                        text: 'Доходы и затраты'
+                    },
+                    xAxis : {
+                        categories: [
+                            'Январь',
+                            'Февраль',
+                            'Март',
+                            'Апрель',
+                            'Май',
+                            'Июнь',
+                            'Июль',
+                            'Август',
+                            'Сентябрь',
+                            'Октябрь',
+                            'Ноябрь',
+                            'Декабрь'
+                        ]
+                    },
+                    yAxis : {
+                        title: {
+                            text: 'гривны'
+                        }
+                    },
+                    series: moves
+                });
+
             window.app.trigger('pageChangeEnd');
         }
     });
