@@ -12,17 +12,21 @@ define([
 
     return Backbone.View.extend({
 
-        tagName: 'div',
+        tagName  : 'div',
         className: 'moveRow',
-        template: _.template(singleMoveTemplate),
+        template : _.template(singleMoveTemplate),
 
         events: {
-            'click .removeColumn': 'onMoveRemoveClick',
+            'click .removeColumn' : 'onMoveRemoveClick',
             'click .commentColumn': 'onCommentClick'
         },
 
         onMoveRemoveClick: function () {
 
+            var userHasApproved = confirm('Точно удалить?');
+            if (!userHasApproved) {
+                return;
+            }
             this.remove();
             this.unbind();
             this.model.destroy();
