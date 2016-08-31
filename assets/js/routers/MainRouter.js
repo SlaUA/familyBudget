@@ -4,21 +4,24 @@ define([
     'MainMovesView',
     'MainSavingsView',
     'WaitSpinnerView',
-    'MainMoveChartView'
+    'MainMoveChartView',
+    'MainSavingsChartView'
 ], function (_,
              Backbone,
              MainMovesView,
              MainSavingsView,
              WaitSpinnerView,
-             MainMoveChartView) {
+             MainMoveChartView,
+             MainSavingsChartView) {
 
     return Backbone.Router.extend({
 
         routes: {
-            'moves'         : 'moves',
-            'savings'       : 'savings',
-            'monthMovesInfo': 'monthMovesInfo',
-            '*notFound'     : 'notFound'
+            'moves'           : 'moves',
+            'savings'         : 'savings',
+            'monthMovesInfo'  : 'monthMovesInfo',
+            'monthSavingsInfo': 'monthSavingsInfo',
+            '*notFound'       : 'notFound'
         },
 
         initialize: function () {
@@ -46,6 +49,11 @@ define([
         monthMovesInfo: function () {
 
             new MainMoveChartView();
+        },
+
+        monthSavingsInfo: function () {
+
+            new MainSavingsChartView();
         },
 
         notFound: function () {

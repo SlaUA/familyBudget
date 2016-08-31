@@ -404,10 +404,6 @@ a.routeLink:hover {
     border-top: 1px solid black;
 }
 
-.savingsMonthTotal {
-    flex-direction: column;
-}
-
 .incomeSum {
     color: green;
 }
@@ -420,7 +416,8 @@ a.routeLink:hover {
     width: 70%;
 }
 
-.monthMovesInfoWrapper {
+.monthMovesInfoWrapper,
+.monthSavingsInfoWrapper {
     width: 30%;
     display: flex;
     justify-content: center;
@@ -439,7 +436,8 @@ a.routeLink:hover {
     border-radius: 5px;
 }
 
-.monthMovesInfoWrapper > a {
+.monthMovesInfoWrapper > a,
+.monthSavingsInfoWrapper > a {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -1033,7 +1031,8 @@ a.routeLink:hover {
     text-align: center;
 }
 
-.movesChartWrapper {
+.movesChartWrapper,
+.savingsChartWrapper {
     padding-top: 30px;
 }
 
