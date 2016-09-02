@@ -1,1 +1,5 @@
-#With love to Vikusiq :)
+# Budget app for android devices.
+## Used: 
+ - Backbone
+ - requireJS
+ - jQuery
