@@ -19,6 +19,7 @@
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
     <plugin name="cordova-plugin-crosswalk-webview" spec="~2.2.0" />
+    <preference name="xwalkVersion" value="14+" />
     <icon src="assets/images/icon72.png" width="72" height="72"/>
     <icon src="assets/images/icon48.png" width="48" height="48"/>
     <icon src="assets/images/icon36.png" width="36" height="36"/>
