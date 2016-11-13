@@ -1,64 +1,72 @@
 define([
-    'underscore',
-    'backbone',
-    'MainMovesView',
-    'MainSavingsView',
-    'WaitSpinnerView',
-    'MainMoveChartView',
-    'MainSavingsChartView'
+		'underscore',
+		'backbone',
+		'MainMovesView',
+		'MainSavingsView',
+		'WaitSpinnerView',
+		'MainMoveChartView',
+		'MainSavingsChartView',
+		'MainSyncView'
 ], function (_,
              Backbone,
              MainMovesView,
              MainSavingsView,
              WaitSpinnerView,
              MainMoveChartView,
-             MainSavingsChartView) {
+             MainSavingsChartView,
+             MainSyncView) {
 
-    return Backbone.Router.extend({
+		return Backbone.Router.extend({
 
-        routes: {
-            'moves'           : 'moves',
-            'savings'         : 'savings',
-            'monthMovesInfo'  : 'monthMovesInfo',
-            'monthSavingsInfo': 'monthSavingsInfo',
-            '*notFound'       : 'notFound'
-        },
+				routes: {
+						'moves'           : 'moves',
+						'savings'         : 'savings',
+						'monthMovesInfo'  : 'monthMovesInfo',
+						'monthSavingsInfo': 'monthSavingsInfo',
+						'sync'            : 'syncPage',
+						'*notFound'       : 'notFound'
+				},
 
-        initialize: function () {
+				initialize: function () {
 
-            new WaitSpinnerView();
-            Backbone.history.start();
-        },
+						new WaitSpinnerView();
+						Backbone.history.start();
+				},
 
-        beforePageChange: function () {
+				beforePageChange: function () {
 
-            window.app.trigger('disposeAllViews');
-            window.app.trigger('pageChangeStart');
-        },
+						window.app.trigger('disposeAllViews');
+						window.app.trigger('pageChangeStart');
+				},
 
-        savings: function () {
+				savings: function () {
 
-            new MainSavingsView();
-        },
+						new MainSavingsView();
+				},
 
-        moves: function () {
+				moves: function () {
 
-            new MainMovesView();
-        },
+						new MainMovesView();
+				},
 
-        monthMovesInfo: function () {
+				monthMovesInfo: function () {
 
-            new MainMoveChartView();
-        },
+						new MainMoveChartView();
+				},
 
-        monthSavingsInfo: function () {
+				monthSavingsInfo: function () {
 
-            new MainSavingsChartView();
-        },
+						new MainSavingsChartView();
+				},
 
-        notFound: function () {
+				syncPage: function () {
 
-            this.navigate('moves', {trigger: true});
-        }
-    });
+						new MainSyncView();
+				},
+
+				notFound: function () {
+
+						this.navigate('moves', {trigger: true});
+				}
+		});
 });

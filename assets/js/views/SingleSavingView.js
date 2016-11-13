@@ -23,6 +23,10 @@ define([
 
         onMoveRemoveClick: function () {
 
+            var userHasApproved = confirm('Точно удалить?');
+            if (!userHasApproved) {
+                return;
+            }
             this.remove();
             this.unbind();
             this.model.destroy();
