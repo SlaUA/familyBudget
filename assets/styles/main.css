@@ -360,7 +360,6 @@ a.routeLink:hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    align-items: center;
 }
 
 .syncLink {
@@ -368,8 +367,7 @@ a.routeLink:hover {
     background: url(../images/sync.png) no-repeat center center;
     background-size: contain;
     width: 100%;
-    height: 100%;
-    margin: 0 10px 0 5px;
+    margin: 0 5px;
 }
 
 /* edit move, saving */
