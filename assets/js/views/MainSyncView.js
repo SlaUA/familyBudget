@@ -57,7 +57,7 @@ define([
 
 						this.inAppBrowser =
 							cordova.InAppBrowser
-							       .open(this.dbxClient.getAuthenticationUrl(this.APP_REDIRECT_URL), target, options);
+							       .open(this.dbxClient.getAuthenticationUrl(this.APP_REDIRECT_URL), this.target, this.options);
 
 						this.inAppBrowser.addEventListener('loadstart', this.onAuthUrlChange.bind(this));
 
