@@ -20,6 +20,9 @@ define([
 
             window.app.on('pageChangeStart', this.onPageChangeStart.bind(this));
             window.app.on('pageChangeEnd', this.onPageChangeEnd.bind(this));
+
+            window.app.on('spinnerShow', this.onPageChangeStart.bind(this));
+            window.app.on('spinnerHide', this.onPageChangeEnd.bind(this));
         },
 
         onPageChangeStart: function () {

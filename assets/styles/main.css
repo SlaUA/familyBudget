@@ -244,6 +244,7 @@ body.overlay-enabled {
     color: #FFF;
     font-size: 20px;
     cursor: pointer;
+    box-shadow: 1px 4px 8px #d2a7a7 inset;
 }
 
 .dateFilterWrapper {
@@ -360,6 +361,9 @@ a.routeLink:hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    -webkit-animation:spinSync 5s linear infinite;
+    -moz-animation:spinSync 5s linear infinite;
+    animation:spinSync 5s linear infinite;
 }
 
 .syncLink {
@@ -856,3 +860,22 @@ a.routeLink:hover {
 }
 
 /* sync page end */
+
+@-moz-keyframes spinSync {
+    100% {
+        -moz-transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes spinSync {
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+@keyframes spinSync {
+    100% {
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+    }
+}

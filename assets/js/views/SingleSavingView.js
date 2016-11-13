@@ -23,8 +23,7 @@ define([
 
         onMoveRemoveClick: function () {
 
-            var userHasApproved = confirm('Точно удалить?');
-            if (!userHasApproved) {
+            if (!confirm('Точно удалить?')) {
                 return;
             }
             this.remove();
