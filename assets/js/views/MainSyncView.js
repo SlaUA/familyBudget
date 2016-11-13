@@ -46,6 +46,11 @@ define([
 
 						this.authDeferred = jQuery.Deferred();
 
+						this.dbxClient = new Dropbox({
+								accessToken: this.oAuthToken,
+								clientId   : this.CLIENT_ID
+						});
+
 						if (this.oAuthToken) {
 								return this.authDeferred.resolve();
 						}
@@ -79,11 +84,6 @@ define([
 				},
 
 				render: function () {
-
-						this.dbxClient = new Dropbox({
-								accessToken: this.oAuthToken,
-								clientId   : this.CLIENT_ID
-						});
 
 						this.dbxClient
 						    .filesGetMetadata({path: this.APP_CONFIG_PATH})
