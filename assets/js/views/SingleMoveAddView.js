@@ -1,10 +1,12 @@
 define([
     'jquery',
+    'datepicker',
     'underscore',
     'backbone',
     'SingleMoveModel',
     'text!../templates/addNewMoveTemplate.html'
 ], function (jQuery,
+             datepicker,
              _,
              Backbone,
              SingleMoveModel,
@@ -37,7 +39,7 @@ define([
         subscribeForCustomEvents: function () {
 
             for (var event in this.customEventsMap) {
-                if (!(event in this.customEventsMap)) {
+                if (!this.customEventsMap.hasOwnProperty(event)) {
                     continue;
                 }
                 this.listenTo(this, event, this[this.customEventsMap[event]]);
@@ -75,6 +77,7 @@ define([
             this.$el.html(this.template());
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
+            this.$el.find('.dateEdit').pickadate();
             return this;
         }
     });

@@ -4,6 +4,8 @@ require.config({
 		paths        : {
 				jquery                   : 'static/jQuery',
 				Dropbox                  : 'static/Dropbox',
+				datepicker               : 'static/datepicker',
+				configDatePicker         : 'static/configPicker',
 				underscore               : 'static/underscore',
 				backbone                 : 'static/backbone',
 				text                     : 'static/text',
@@ -33,25 +35,31 @@ require.config({
 		},
 		shim         : {
 				highcharts: {
-						exports: "Highcharts",
-						deps   : ["jquery"]
+						exports: 'Highcharts',
+						deps   : ['jquery']
 				}
 		}
 });
 
 define([
 		'jquery',
+		'datepicker',
+		'configDatePicker',
 		'underscore',
 		'backbone',
 		'ViewsManager',
 		'fastclick',
 		'MainRouter'
 ], function (jQuery,
+             datepicker,
+             configDatePicker,
              _,
              Backbone,
              ViewsManager,
              fastclick,
              MainRouter) {
+
+		configDatePicker();
 
 		jQuery(function () {
 

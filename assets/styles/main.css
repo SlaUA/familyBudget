@@ -16,6 +16,7 @@ body {
     min-width: 300px;
     height: 100%;
     line-height: 1;
+    background: url(../images/white-box-background.png) repeat;
 }
 
 body.spinner-overlay:after,
@@ -65,7 +66,7 @@ body.overlay-enabled {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin: 0 3px;
+    margin: 0 1px;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
@@ -326,7 +327,7 @@ body.overlay-enabled {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    margin: 10px 0 0;
+    margin: 20px 0 0;
 }
 
 .routeLink {
@@ -334,8 +335,8 @@ body.overlay-enabled {
     border-radius: 5px;
     color: ghostwhite;
     text-decoration: none;
-    height: 30px;
-    line-height: 30px;
+    height: 35px;
+    line-height: 35px;
     display: block;
     position: relative;
     text-align: center;
@@ -344,7 +345,6 @@ body.overlay-enabled {
     margin: 0 auto;
     width: 80%;
     font-size: 20px;
-    box-shadow: 3px 5px 5px black;
 }
 
 a.routeLink:hover {
@@ -352,16 +352,23 @@ a.routeLink:hover {
     color: ghostwhite;
 }
 
-.routeLink:active {
-    box-shadow: 0 0 0 black;
+.syncLinkWrapper {
+    width: 15%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .syncLink {
     text-decoration: none;
-    background: url(../images/sync.png) repeat;
+    background: url(../images/sync.png) no-repeat center center;
     background-size: contain;
-    width: 20px;
-    height: 20px;
+    width: 100%;
+    height: 100%;
     margin: 0 10px 0 5px;
 }
 
@@ -434,13 +441,8 @@ a.routeLink:hover {
 
 /*!*total sums*!*/
 .totalColumnName {
-    width: 75px;
     display: inline-block;
     margin-left: 5px;
-}
-
-.savingsMonthTotal .totalColumnName {
-    width: 125px;
 }
 
 .savingsMonthTotal,
@@ -465,12 +467,12 @@ a.routeLink:hover {
 }
 
 .totalInfo {
-    width: 70%;
+    width: 60%;
 }
 
 .monthMovesInfoWrapper,
 .monthSavingsInfoWrapper {
-    width: 30%;
+    width: 25%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -838,7 +840,6 @@ a.routeLink:hover {
 
 .syncButton {
     line-height: 30px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 5px 15px;
     margin-top: 35px;

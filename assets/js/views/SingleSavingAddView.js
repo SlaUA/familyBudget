@@ -1,10 +1,12 @@
 define([
     'jquery',
+    'datepicker',
     'underscore',
     'backbone',
     'SingleSavingModel',
     'text!../templates/addNewSavingTemplate.html'
 ], function (jQuery,
+             datepicker,
              _,
              Backbone,
              SingleSavingModel,
@@ -77,6 +79,7 @@ define([
             this.$el.html(this.template());
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
+            this.$el.find('.dateEdit').pickadate();
             return this;
         }
     });

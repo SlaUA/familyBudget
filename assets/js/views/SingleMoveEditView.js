@@ -1,9 +1,11 @@
 define([
     'jquery',
+    'datepicker',
     'underscore',
     'backbone',
     'text!../templates/moveEditTemplate.html'
 ], function (jQuery,
+             datepicker,
              _,
              Backbone,
              moveEditTemplate) {
@@ -76,7 +78,7 @@ define([
             );
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
-
+            this.$el.find('.dateEdit').pickadate();
             return this;
         }
     });
