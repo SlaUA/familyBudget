@@ -1,6 +1,6 @@
 require.config({
 		enforceDefine: true,
-		baseUrl      : './js',
+		baseUrl      : 'assets/js/',
 		paths        : {
 				jquery                   : 'static/jQuery',
 				Dropbox                  : 'static/Dropbox',
