@@ -85,14 +85,18 @@ define([
 
 				render: function () {
 
+						this.dbxClient = new Dropbox({
+								accessToken: this.oAuthToken,
+								clientId   : this.CLIENT_ID
+						});
+
 						this.dbxClient
 						    .filesGetMetadata({path: this.APP_CONFIG_PATH})
 						    .then(function (response) {
 
 								    this.updateLastChange(response.server_modified);
 						    }.bind(this))
-						    .catch(function () {
-						    });
+						    .catch(function () {});
 
 						window.app.trigger('addNewView', this);
 						window.app.trigger('pageChangeEnd');
@@ -128,7 +132,8 @@ define([
 
 				downloadData: function () {
 
-						var fileIsReady = jQuery.Deferred();
+						var fileIsReady = jQuery.Deferred(),
+						    result;
 
 						window.app.trigger('spinnerShow');
 
@@ -138,8 +143,12 @@ define([
 
 								    var reader = new FileReader();
 								    reader.addEventListener('load', function () {
-
-										    fileIsReady.resolve(JSON.parse(this.result));
+										    try {
+												    result = JSON.parse(this.result);
+										    } catch (e) {
+												    result = {};
+										    }
+										    fileIsReady.resolve(result);
 								    });
 								    reader.readAsText(response.fileBlob);
 
@@ -148,17 +157,16 @@ define([
 
 						    .then(function (data) {
 
-								    Object.keys(data)
-								          .forEach(function (key) {
+								    Object.keys(data).forEach(function (key) {
 
-										          localStorage.setItem(key, data[key]);
-								          });
-								    window.app.trigger('spinnerHide');
+										    localStorage.setItem(key, data[key]);
+								    });
 								    alert('Готово!');
 								    location.reload();
 						    }).catch(function () {
 
 								alert('Нечего загружать :(');
+								window.app.trigger('spinnerHide');
 						});
 				},
 
