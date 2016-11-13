@@ -154,7 +154,7 @@ body.overlay-enabled {
 }
 
 .dateColumn {
-    width: 27%;
+    width: 30%;
 }
 
 .typeColumn {
@@ -184,7 +184,7 @@ body.overlay-enabled {
 }
 
 .commentColumn {
-    width: 37%;
+    width: 34%;
     word-break: break-word;
     padding: 0 5px;
     cursor: text;
