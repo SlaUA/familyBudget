@@ -1,9 +1,11 @@
 <input class="form-control dateEdit" type="text"
-       value="<%=new Date(date).getDate()%>.<%=new Date(date).getMonth()+1%>.<%= new Date(date).getFullYear()%>">
+       value="<%=day%>.<%=month%>.<%= year%>">
 
 <select class="form-control typeEdit">
-    <option value="expense" <% if (type==='expense') { %> selected <% } %>>Расход</option>
-    <option value="income" <% if (type==='income') { %> selected <% } %>>Доход</option>
+		<option value="expense"
+		<% if (type==='expense') { %> selected <% } %>>Расход</option>
+		<option value="income"
+		<% if (type==='income') { %> selected <% } %>>Доход</option>
 </select>
 
 <input class="form-control sumEdit" value="<%= sum %>">
@@ -11,6 +13,6 @@
 <textarea class="form-control editMoveComment"><%= comment %></textarea>
 
 <div class="bottomButtonsWrapper">
-    <div class="acceptChanges bottomButtons">OK:)</div>
-    <div class="rejectChanges bottomButtons">Отмена</div>
+		<div class="acceptChanges bottomButtons">OK:)</div>
+		<div class="rejectChanges bottomButtons">Отмена</div>
 </div>

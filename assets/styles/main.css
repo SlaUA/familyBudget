@@ -361,9 +361,7 @@ a.routeLink:hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-animation:spinSync 5s linear infinite;
-    -moz-animation:spinSync 5s linear infinite;
-    animation:spinSync 5s linear infinite;
+    overflow: hidden;
 }
 
 .syncLink {
@@ -372,6 +370,9 @@ a.routeLink:hover {
     background-size: contain;
     width: 100%;
     margin: 0 5px;
+    -webkit-animation:spinSync 5s linear infinite;
+    -moz-animation:spinSync 5s linear infinite;
+    animation:spinSync 5s linear infinite;
 }
 
 /* edit move, saving */

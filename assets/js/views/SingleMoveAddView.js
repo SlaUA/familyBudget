@@ -74,7 +74,13 @@ define([
 
         render: function () {
 
-            this.$el.html(this.template());
+        	var today = new Date();
+	
+	        this.$el.html(this.template({
+		        day: today.getDate() > 9 ? today.getDate() : '0' + today.getDate(),
+		        month: (today.getMonth() + 1) > 9 ? (today.getMonth() + 1) : ('0' + (today.getMonth() + 1)),
+		        year: today.getFullYear()
+	        }));
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
             this.$el.find('.dateEdit').pickadate();

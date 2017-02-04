@@ -73,9 +73,17 @@ define([
 
 
         render: function () {
+	
+	        var model = this.model.toJSON(),
+		        date = new Date(model.date),
+		        dateConfig = {
+			        day: date.getDate() > 9 ? date.getDate() : '0' + date.getDate(),
+			        month: (date.getMonth() + 1) > 9 ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1)),
+			        year: date.getFullYear()
+		        };
 
             this.$el.html(
-                this.template(this.model.toJSON())
+                this.template(jQuery.extend({}, model, dateConfig))
             );
             this.$body.append(this.$el);
             this.$body.addClass('overlay-enabled');
