@@ -43,50 +43,38 @@ define([
         /**
          * @returns {Array}, array of savings for the selected year
          */
-        getSavingsDataForTheYear: function () {
-
-            var result            = [];
-            var savingsForTheYear = {
-                USD: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        getSeries: function () {
+            var yearSavings = {
+                expense: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                income: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             };
 
             this.currentYear = parseInt(this.$yearSelect.val());
 
-            this.collection.each(function (saving) {
-
-                var dateOfSaving = new Date(saving.attributes.date);
+            this.collection.each((saving) => {
+                const dateOfSaving = new Date(saving.attributes.date);
 
                 if (dateOfSaving.getFullYear() !== this.currentYear || saving.attributes.currency !== 'USD') {
                     return false;
                 }
 
                 if (saving.attributes.type === 'expense') {
-                    savingsForTheYear[saving.attributes.currency][dateOfSaving.getMonth()] -= saving.attributes.sum;
+                    yearSavings[saving.attributes.type][dateOfSaving.getMonth()] -= saving.attributes.sum;
                 } else {
-                    savingsForTheYear[saving.attributes.currency][dateOfSaving.getMonth()] += saving.attributes.sum;
+                    yearSavings[saving.attributes.type][dateOfSaving.getMonth()] += saving.attributes.sum;
                 }
+            });
 
-            }.bind(this));
-
-            for (var type in savingsForTheYear) {
-
-                if (!savingsForTheYear.hasOwnProperty(type)) {
-                    continue;
-                }
-
-                result.push({
-                    name: type,
-                    data: savingsForTheYear[type]
-                });
-            }
-
-            return result;
+            return [{
+                name: 'Доход',
+                data: yearSavings.income
+            }, {
+                name: 'Затраты',
+                data: yearSavings.expense
+            }];
         },
 
         render: function () {
-
-            var savings = this.getSavingsDataForTheYear.call(this);
-
             this.$el.find('#savingsChart')
                 .highcharts({
                     chart : {
@@ -127,7 +115,7 @@ define([
                             text: 'сумма'
                         }
                     },
-                    series: savings
+                    series: this.getSeries.call(this)
                 });
 
             window.app.trigger('pageChangeEnd');
