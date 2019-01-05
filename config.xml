@@ -15,12 +15,10 @@
         <preference name="Fullscreen" value="true"/>
         <preference name="Orientation" value="portrait"/>
         <preference name="android-minSdkVersion" value="27" />
-        <preference name="xwalkVersion" value="22+" />
         <icon src="assets/images/icon.png" width="180" height="180"/>
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
-    <plugin name="cordova-plugin-crosswalk-webview"/>
     <icon src="assets/images/icon72.png" width="72" height="72"/>
     <icon src="assets/images/icon48.png" width="48" height="48"/>
     <icon src="assets/images/icon36.png" width="36" height="36"/>
